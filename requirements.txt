@@ -1,0 +1,6 @@
+jinja2
+python-slugify
+requests
+beautifulsoup4
+lxml
+feedparser
