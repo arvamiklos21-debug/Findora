@@ -2,78 +2,25 @@
 <html lang="hu">
 <head>
   <meta charset="utf-8" />
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
+  <title>{{title}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{keyword}} akciók és kedvezmények – naponta frissítve.">
   <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 16px;
-      background: #fafafa;
-      color: #111;
-    }
-    h1 { font-size: 28px; margin-bottom: 10px; }
-    .badge { font-size: 13px; color: #666; margin-bottom: 15px; display:block; }
-    .grid { 
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-    }
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 10px;
-      background: #fff;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .card h3 {
-      font-size: 16px;
-      margin: 0 0 6px;
-    }
-    a {
-      text-decoration: none;
-      color: #0072f5;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      margin: 30px 0 10px;
-      font-size: 13px;
-      color: #777;
-    }
-    nav a {
-      margin-right: 10px;
-      color: #333;
-    }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px}
+    h1{font-size:28px;margin:0 0 10px}
+    .muted{opacity:.7;font-size:14px}
+    a{color:#0069d9;text-decoration:none} a:hover{text-decoration:underline}
   </style>
-  <link rel="canonical" href="{{ canonical }}">
 </head>
-
 <body>
-  <nav>
-    <a href="index.html">🏠 Főoldal</a>
-  </nav>
+  <a href="index.html">← Vissza az indexre</a>
+  <h1>{{title}}</h1>
+  <p class="muted">Frissítve: {{date}}</p>
 
-  <h1>{{ heading }}</h1>
-  <span class="badge">Frissítve: {{ updated }}</span>
+  <p>Keresés az Amazonon a kulcsszóra:
+    <a rel="nofollow sponsored" href="https://www.amazon.com/s?k={{keyword}}">Amazon találatok</a>
+  </p>
 
-  <div class="grid">
-    {% for p in products %}
-    <article class="card">
-      <h3>{{ p.title }}</h3>
-      {% if p.price %}
-      <p><strong>{{ p.price }}</strong></p>
-      {% endif %}
-      <p><a href="{{ p.url }}" rel="nofollow sponsored">🔗 Vedd meg</a></p>
-    </article>
-    {% endfor %}
-  </div>
-
-  <footer>
-    © Akciófigyelő – automatikusan frissített akciós ajánlatok
-  </footer>
+  <p>(Később ide kerülnek az automatikusan összegyűjtött ajánlatok.)</p>
 </body>
 </html>
