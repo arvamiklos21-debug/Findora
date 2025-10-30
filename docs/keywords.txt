@@ -1,126 +1,184 @@
+# --- ABOUT YOU (AWIN) ---
+# --- ALZA ---
+# --- AMAZON ---
+# --- BOOKING.COM (CJ / Awin) ---
+# --- DIVAT / RUHA / CIPŐ ---
+# --- EGYÉB NÉPSZERŰ KULCSSZAVAK ---
+# --- OTTHON / KERT / HÁZTARTÁS ---
+# --- TECH / ELEKTRONIKA ---
+# --- TRIP.COM (CJ) ---
+# --- UTAZÁS / SZÁLLÁS ---
 # --- ÁLTALÁNOS KERESÉSI KULCSSZAVAK ---
-akciós ajánlatok
-kedvezmény
-leárazás
-kupon
-ingyenes szállítás
+# --- ÉVAD / ESEMÉNY ALAPÚ ---
+about you
+aboutyou
+aboutyou accessories
+aboutyou akció
+aboutyou cipők
+aboutyou deals
+aboutyou fashion
+aboutyou kedvezmény
+aboutyou men
+aboutyou outfit
+aboutyou ruhák
+aboutyou sale
+aboutyou shoes
+aboutyou women
+aboutyou.hu
+affiliate offers
 ajándék ötlet
-karácsonyi ajándék
-black friday
-ünnepi akciók
-legjobb ár
-árösszehasonlítás
-online vásárlás
-webshop ajánlatok
 ajánlatok ma
 akció ma
-friss kedvezmények
-új akciók
-spórolj most
-discount deals
-best online offers
-hot deals
-today's sale
-new discounts
-shopping guide
-
-# --- TECH / ELEKTRONIKA ---
-laptop akció
-okostelefon
-tabletek
-okosóra
-headphones
-wireless earbuds
-smart home
-tv
-console
-gaming laptop
-tech sale
-electronics discount
-alza laptop
-amazon electronics
-cheap tech
-smartwatch deal
-headset offers
-
-# --- DIVAT / RUHA / CIPŐ ---
-aboutyou ruhák
-divat akció
-női ruházat
-férfi ruhák
-téli kabát
-cipő kedvezmény
-sportcipő akció
-divatos kiegészítők
-outfit inspiration
-aboutyou fashion
-clothing discount
-season sale
-summer fashion
-winter collection
-bags and accessories
-cheap shoes
-trendy style
-fashion offers
-
-# --- OTTHON / KERT / HÁZTARTÁS ---
-konyhai eszközök
-otthoni dekor
-bútor akció
-háztartási gép
-porszívó akció
-lámpák
-home decoration
-home appliances
-kitchen sale
-garden tools
-smart home accessories
-amazon home
+akciós ajánlatok
+alza
+alza accessories
+alza akció
+alza computers
+alza deals
+alza electronics
+alza gaming
 alza háztartás
-
-# --- UTAZÁS / SZÁLLÁS ---
-booking szállás
-booking utazás
-trip szállás
-hotel kedvezmény
-nyaralás olcsón
-olcsó repjegy
-wellness hétvége
-last minute deals
-booking vacation
-cheap hotels
-city break
-travel offer
-flight discount
-trip.com hotel
-trip travel package
-
-# --- ÉVAD / ESEMÉNY ALAPÚ ---
-karácsonyi akció
-mikulás meglepetés
-téli leárazás
-nyári kiárusítás
-black friday sale
-cyber monday
-valentin napi ajánlat
-születésnapi ajándék
+alza kedvezmény
+alza laptop
+alza sale
+alza smartphone
+alza tech
+alza tv
+alza.hu
+amazon
+amazon accessories
+amazon affiliate
+amazon books
+amazon deals
+amazon discount
+amazon electronics
+amazon fashion
+amazon home
+amazon offers
+amazon products
+amazon sale
+amazon store
+amazon tech
+amazon trending
 back to school sale
-holiday deals
-seasonal discounts
-gift for him
-gift for her
+bags and accessories
 best gift ideas
-
-# --- EGYÉB NÉPSZERŰ KULCSSZAVAK ---
-online rendelés
-gyors szállítás
-minőségi termék
-olcsó ár
-megbízható webshop
-trending now
-new arrivals
-must have items
-popular this week
+best online offers
+black friday
+black friday sale
+booking
+booking affiliate
+booking akció
+booking cheap hotels
+booking deals
+booking discounts
+booking hotels
+booking rooms
+booking szállás
+booking travel
+booking utazás
+booking vacation
+booking.com
+bútor akció
+cheap hotels
+cheap shoes
+cheap tech
+cipő kedvezmény
+city break
+clothing discount
+console
+cyber monday
+discount deals
+divat akció
+divatos kiegészítők
+electronics discount
+fashion offers
 findora recommendations
+flight discount
+friss kedvezmények
+férfi ruhák
+gaming laptop
+garden tools
+gift for her
+gift for him
+gyors szállítás
+headphones
+headset offers
+holiday deals
+home appliances
+home decoration
+hot deals
+hotel kedvezmény
+háztartási gép
+ingyenes szállítás
+karácsonyi ajándék
+karácsonyi akció
+kedvezmény
+kitchen sale
+konyhai eszközök
+kupon
+laptop akció
+last minute deals
+legjobb ár
+leárazás
+lámpák
+megbízható webshop
+mikulás meglepetés
+minőségi termék
+must have items
+new arrivals
+new discounts
+nyaralás olcsón
+nyári kiárusítás
+női ruházat
+okostelefon
+okosóra
+olcsó repjegy
+olcsó ár
+online rendelés
+online vásárlás
+otthoni dekor
+outfit inspiration
+popular this week
+porszívó akció
+season sale
+seasonal discounts
+shopping guide
 shopping inspiration
-affiliate offers
+smart home
+smart home accessories
+smartwatch deal
+sportcipő akció
+spórolj most
+summer fashion
+születésnapi ajándék
+tabletek
+tech sale
+today's sale
+travel offer
+trending now
+trendy style
+trip
+trip akció
+trip deals
+trip discounts
+trip flights
+trip hotels
+trip szállás
+trip travel
+trip travel package
+trip utazás
+trip vacation
+trip.com
+trip.com hotel
+tv
+téli kabát
+téli leárazás
+valentin napi ajánlat
+webshop ajánlatok
+wellness hétvége
+winter collection
+wireless earbuds
+árösszehasonlítás
+új akciók
+ünnepi akciók
