@@ -2,34 +2,35 @@ name: Update keywords
 
 on:
   schedule:
-    - cron: "15 3 * * *"     # minden nap 03:15 UTC
-  workflow_dispatch:         # kézzel is indítható
+    - cron: "17 3 * * *"   # naponta egyszer fut 04:17 CET körül
+  workflow_dispatch:        # kézzel is indítható az Actions menüből
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.x"
 
-      - name: Run updater
+      - name: Run updater script
+        run: python3 scripts/update_keywords.py
+
+      - name: Commit and push changes
         run: |
-          python -m pip install --upgrade pip
-          python scripts/update_keywords.py
-
-      - name: Commit & push if changed
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: |
-            docs/keywords.txt
-            docs/program.txt
-          message: "chore: daily keywords refresh (auto)"
-          default_author: github_actions
+          if ! git diff --quiet -- docs/keywords.txt; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add docs/keywords.txt
+            git commit -m "chore: auto-update keywords ($(date -u +'%Y-%m-%d'))"
+            git push
+          else
+            echo "No changes to commit."
+          fi
