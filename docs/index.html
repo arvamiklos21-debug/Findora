@@ -70,6 +70,14 @@ main{max-width:1100px;margin:40px auto;padding:0 16px}
 .cta{margin-top:auto;padding:12px;text-align:center}
 .cta a{display:inline-block;background:var(--gold);padding:8px 12px;border-radius:8px;color:#111;font-weight:600}
 
+/* 🔸 SPECIAL BACKGROUNDS FOR DEALS */
+.section.deals25 h2{
+  background:linear-gradient(90deg,#ffcc80,#ffe9b3);
+}
+.section.deals50 h2{
+  background:linear-gradient(90deg,#ff8a80,#ffcdd2);
+}
+
 /* FOOTER */
 footer{text-align:center;padding:26px;background:var(--primary);color:#fff;margin-top:40px;font-size:14px}
 </style>
@@ -150,7 +158,7 @@ function showHome(){
   const deals25 = ITEMS.filter(i=>i.discount>=25 && i.discount<50);
   if(deals25.length){
     const s=document.createElement("section");
-    s.className="section";
+    s.className="section deals25";
     s.innerHTML=`<h2>🎁 Akciós ajánlatok (25–49%)</h2><div class="grid"></div>`;
     const grid=s.querySelector(".grid");
     deals25.forEach(i=>grid.innerHTML+=cardHTML(i));
@@ -161,7 +169,7 @@ function showHome(){
   const deals50 = ITEMS.filter(i=>i.discount>=50);
   if(deals50.length){
     const s=document.createElement("section");
-    s.className="section";
+    s.className="section deals50";
     s.innerHTML=`<h2>🔥 Nagy kedvezmények (50%+)</h2><div class="grid"></div>`;
     const grid=s.querySelector(".grid");
     deals50.forEach(i=>grid.innerHTML+=cardHTML(i));
