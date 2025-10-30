@@ -1,0 +1,35 @@
+name: Update keywords
+
+on:
+  schedule:
+    - cron: "15 3 * * *"     # minden nap 03:15 UTC
+  workflow_dispatch:         # kézzel is indítható
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run updater
+        run: |
+          python -m pip install --upgrade pip
+          python scripts/update_keywords.py
+
+      - name: Commit & push if changed
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: |
+            docs/keywords.txt
+            docs/program.txt
+          message: "chore: daily keywords refresh (auto)"
+          default_author: github_actions
