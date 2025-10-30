@@ -1,15 +1,3 @@
-# --- ABOUT YOU (AWIN) ---
-# --- ALZA ---
-# --- AMAZON ---
-# --- BOOKING.COM (CJ / Awin) ---
-# --- DIVAT / RUHA / CIPŐ ---
-# --- EGYÉB NÉPSZERŰ KULCSSZAVAK ---
-# --- OTTHON / KERT / HÁZTARTÁS ---
-# --- TECH / ELEKTRONIKA ---
-# --- TRIP.COM (CJ) ---
-# --- UTAZÁS / SZÁLLÁS ---
-# --- ÁLTALÁNOS KERESÉSI KULCSSZAVAK ---
-# --- ÉVAD / ESEMÉNY ALAPÚ ---
 about you
 aboutyou
 aboutyou accessories
@@ -25,11 +13,6 @@ aboutyou sale
 aboutyou shoes
 aboutyou women
 aboutyou.hu
-affiliate offers
-ajándék ötlet
-ajánlatok ma
-akció ma
-akciós ajánlatok
 alza
 alza accessories
 alza akció
@@ -37,7 +20,6 @@ alza computers
 alza deals
 alza electronics
 alza gaming
-alza háztartás
 alza kedvezmény
 alza laptop
 alza sale
@@ -60,12 +42,6 @@ amazon sale
 amazon store
 amazon tech
 amazon trending
-back to school sale
-bags and accessories
-best gift ideas
-best online offers
-black friday
-black friday sale
 booking
 booking affiliate
 booking akció
@@ -79,85 +55,6 @@ booking travel
 booking utazás
 booking vacation
 booking.com
-bútor akció
-cheap hotels
-cheap shoes
-cheap tech
-cipő kedvezmény
-city break
-clothing discount
-console
-cyber monday
-discount deals
-divat akció
-divatos kiegészítők
-electronics discount
-fashion offers
-findora recommendations
-flight discount
-friss kedvezmények
-férfi ruhák
-gaming laptop
-garden tools
-gift for her
-gift for him
-gyors szállítás
-headphones
-headset offers
-holiday deals
-home appliances
-home decoration
-hot deals
-hotel kedvezmény
-háztartási gép
-ingyenes szállítás
-karácsonyi ajándék
-karácsonyi akció
-kedvezmény
-kitchen sale
-konyhai eszközök
-kupon
-laptop akció
-last minute deals
-legjobb ár
-leárazás
-lámpák
-megbízható webshop
-mikulás meglepetés
-minőségi termék
-must have items
-new arrivals
-new discounts
-nyaralás olcsón
-nyári kiárusítás
-női ruházat
-okostelefon
-okosóra
-olcsó repjegy
-olcsó ár
-online rendelés
-online vásárlás
-otthoni dekor
-outfit inspiration
-popular this week
-porszívó akció
-season sale
-seasonal discounts
-shopping guide
-shopping inspiration
-smart home
-smart home accessories
-smartwatch deal
-sportcipő akció
-spórolj most
-summer fashion
-születésnapi ajándék
-tabletek
-tech sale
-today's sale
-travel offer
-trending now
-trendy style
 trip
 trip akció
 trip deals
@@ -166,19 +63,6 @@ trip flights
 trip hotels
 trip szállás
 trip travel
-trip travel package
 trip utazás
 trip vacation
 trip.com
-trip.com hotel
-tv
-téli kabát
-téli leárazás
-valentin napi ajánlat
-webshop ajánlatok
-wellness hétvége
-winter collection
-wireless earbuds
-árösszehasonlítás
-új akciók
-ünnepi akciók
