@@ -22,23 +22,46 @@ a:hover{text-decoration:underline}
 /* HEADER */
 .hero{
   position:relative;width:100%;
-  min-height:clamp(150px,25vh,210px);
+  min-height:clamp(180px,30vh,220px);
   background:linear-gradient(90deg,#1a4b8c,#003366),
              url("assets/img/findora-header.png") center 35%/cover no-repeat;
   display:flex;align-items:center;color:#fff;
   text-shadow:0 2px 5px rgba(0,0,0,.3);
 }
-.hero-content{max-width:1100px;margin:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+.hero-content{max-width:1100px;margin:auto;padding:18px;display:flex;flex-direction:column;gap:10px;text-align:center}
 .hero-text h1{font-size:clamp(22px,4vw,36px);color:var(--gold)}
 .hero-text p{font-size:clamp(14px,1.8vw,18px)}
 
+/* Ünnepi üzenet */
+.promo-banner{
+  background:linear-gradient(90deg,#ffcc80,#ffd166,#ffe9b3);
+  color:#111;padding:8px;font-weight:600;
+  border-radius:10px;margin-bottom:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+/* Kereső */
 .searchbar{display:flex;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,0.15);
-  padding:10px;border-radius:12px;backdrop-filter:blur(2px)}
+  padding:10px;border-radius:12px;backdrop-filter:blur(2px);justify-content:center}
 .searchbar input, .searchbar button{
   padding:10px;border-radius:10px;border:none;font-size:14px
 }
-.searchbar input{flex:1;min-width:200px}
+.searchbar input{flex:1;min-width:200px;max-width:320px}
 .searchbar button{background:var(--gold);font-weight:700;color:#111;cursor:pointer}
+
+/* OLDALSÁVOK */
+.sidebar{
+  position:fixed;top:50%;transform:translateY(-50%);
+  width:130px;padding:12px;border-radius:12px;
+  color:#fff;font-weight:700;text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.25);z-index:10;
+  writing-mode:vertical-rl;text-orientation:mixed;
+  transition:0.3s;
+}
+.sidebar:hover{transform:translateY(-50%) scale(1.05)}
+.sidebar-left{left:10px;background:linear-gradient(180deg,#b71c1c,#ef5350);}
+.sidebar-right{right:10px;background:linear-gradient(180deg,#000,#555);color:#ffd166;}
+@media(max-width:900px){.sidebar{display:none}}
 
 /* MAIN */
 main{max-width:1100px;margin:40px auto;padding:0 16px}
@@ -56,7 +79,13 @@ main{max-width:1100px;margin:40px auto;padding:0 16px}
 }
 .section img.logo{height:22px}
 .grid{display:grid;gap:16px;padding:18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;position:relative;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 8px 18px rgba(0,0,0,0.15);}
 .thumb{height:130px;background:#e8eef7 center/cover no-repeat}
 .badge{
   position:absolute;top:8px;left:8px;
@@ -72,10 +101,10 @@ main{max-width:1100px;margin:40px auto;padding:0 16px}
 
 /* 🔸 SPECIAL BACKGROUNDS FOR DEALS */
 .section.deals25 h2{
-  background:linear-gradient(90deg,#ffcc80,#ffe9b3);
+  background:linear-gradient(90deg,#ffe0b2,#ffcc80);
 }
 .section.deals50 h2{
-  background:linear-gradient(90deg,#ff8a80,#ffcdd2);
+  background:linear-gradient(90deg,#ffcdd2,#ef9a9a);
 }
 
 /* FOOTER */
@@ -84,8 +113,15 @@ footer{text-align:center;padding:26px;background:var(--primary);color:#fff;margi
 </head>
 <body>
 
+<!-- OLDALSÁVOK -->
+<div class="sidebar sidebar-left">🎄 Karácsonyi ajánlatok</div>
+<div class="sidebar sidebar-right">🖤 Black Friday</div>
+
 <header class="hero">
   <div class="hero-content">
+    <div class="promo-banner">
+      🎁 Készülj az ünnepekre! – 🛍️ Black Friday akciók is elérhetők!
+    </div>
     <div class="hero-text">
       <h1>Findora</h1>
       <p>Irányt mutat a legjobb ajánlatokhoz</p>
@@ -154,7 +190,6 @@ function cardHTML(i){
 function showHome(){
   content.innerHTML="";
 
-  // --- Akciók (25-49%) ---
   const deals25 = ITEMS.filter(i=>i.discount>=25 && i.discount<50);
   if(deals25.length){
     const s=document.createElement("section");
@@ -165,7 +200,6 @@ function showHome(){
     content.appendChild(s);
   }
 
-  // --- Nagy akciók (50%+) ---
   const deals50 = ITEMS.filter(i=>i.discount>=50);
   if(deals50.length){
     const s=document.createElement("section");
@@ -176,7 +210,6 @@ function showHome(){
     content.appendChild(s);
   }
 
-  // --- Partner szekciók ---
   const partners=["Amazon","eMAG","Alza","Booking"];
   partners.forEach(p=>{
     const section=document.createElement("section");
