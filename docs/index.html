@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Findora – Irányt mutat a legjobb ajánlatokhoz</title>
   <meta name="description" content="Findora – Iránytű a legjobb online ajánlatokhoz. Keresés, szűrés és partnerlinkek: Amazon, Alza, Booking." />
-  <link rel="icon" href="assets/img/favicon.png" />
   <style>
     :root{
       --bg:#0b4da3; --bg2:#0e61d3; --txt:#0b1b33; --card:#ffffff; --muted:#6b7a90;
-      --brand:#ffd14d; --ok:#20b26b; --warn:#ff7a59; --ring:rgba(14,97,211,.15);
+      --brand:#ffd14d; --ok:#20b26b; --ring:rgba(14,97,211,.15);
       --radius:16px; --shadow: 0 8px 24px rgba(2,17,37,.08);
     }
     *{box-sizing:border-box}
@@ -17,48 +16,52 @@
     a{color:inherit;text-decoration:none}
     img{display:block;max-width:100%}
     .container{max-width:1100px;margin:0 auto;padding:0 16px}
+
     /* header / hero */
     header{background:linear-gradient(135deg,var(--bg),var(--bg2)); color:#fff}
     .topbar{display:flex;align-items:center;gap:16px; padding:16px 0}
     .logo{display:flex;align-items:center;gap:10px;font-weight:800}
-    .logo img{width:36px;height:36px}
+    .logo-img{height:48px;width:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     .tagline{opacity:.85;font-weight:600}
     .hero{padding:24px 0 28px}
     .hero h1{margin:0 0 10px;font-size:28px;letter-spacing:.2px}
+
+    /* search */
     .searchbar{display:flex;gap:10px;align-items:center;background:#fff;border-radius:999px;padding:8px 10px;box-shadow:var(--shadow)}
     .searchbar input{flex:1;border:none;outline:none;font-size:16px;padding:10px 12px;border-radius:999px}
     .searchbar button{border:none;background:var(--brand);color:#2a2500;font-weight:700;padding:10px 16px;border-radius:999px;cursor:pointer}
+
     /* tabs */
     .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
     .tab{padding:8px 12px;border-radius:999px;background:#fff;color:#123;box-shadow:0 1px 2px rgba(2,17,37,.06) inset;border:1px solid #e6edf6;cursor:pointer;font-weight:600}
     .tab.active{background:#e8f1ff;border-color:#cfe3ff;color:#0b4da3}
-    /* grid */
+
+    /* layout */
+    .layout{display:grid;grid-template-columns:1fr 280px;gap:22px;margin-top:22px}
+    @media(max-width:980px){.layout{grid-template-columns:1fr}}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:640px){.grid{grid-template-columns:1fr}}
+
     /* card */
     .card{position:relative;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;border:1px solid #eef3f9}
     .card .cover{height:150px;background:#f2f6fc;display:flex;align-items:center;justify-content:center}
-    .card .cover img{max-height:100%;object-fit:cover}
+    .card .cover img{max-height:100%;object-fit:cover;width:100%}
     .card .body{padding:14px}
     .title{font-weight:700;line-height:1.2;margin:0 0 8px}
     .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;margin-bottom:10px}
     .price{font-weight:800;color:#081a39}
     .badge{position:absolute;top:10px;left:10px;background:#fff;border-radius:999px;padding:5px 9px;font-weight:800;font-size:12px;border:1px solid #e9eef6}
     .badge.save{color:#0a7a4f;border-color:#cfeee2;background:#f2fbf7}
-    .badge.cut{right:10px;left:auto;color:#b5471d;border-color:#ffe0d7;background:#fff6f3}
-    .brandtag{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
-    .brandtag img{width:16px;height:16px}
     .actions{display:flex;gap:10px;margin-top:8px}
     .btn{flex:1;text-align:center;border-radius:10px;padding:10px 12px;font-weight:700;border:1px solid #e6edf6;background:#fff;cursor:pointer}
     .btn.primary{background:var(--brand);border-color:#e8c03c}
-    /* sidebar notes (akciók/ünnepek) */
-    .layout{display:grid;grid-template-columns:1fr 280px;gap:22px;margin-top:22px}
-    @media(max-width:980px){.layout{grid-template-columns:1fr}}
+
+    /* sidebar */
     .note{background:#fff;border:1px dashed #dfe8f6;border-radius:14px;padding:16px;box-shadow:var(--shadow)}
     .note h3{margin:0 0 6px}
     .note small{color:var(--muted)}
-    /* footer */
+
     footer{margin:36px 0 28px;color:var(--muted);font-size:13px}
     .sr{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
   </style>
@@ -68,7 +71,8 @@
     <div class="container">
       <div class="topbar">
         <div class="logo">
-          <img src="assets/img/findora_mark.png" alt="Findora logó" />
+          <!-- SAJÁT LOGÓ -->
+          <img src="assets/img/findora_mark.png" alt="Findora logó" class="logo-img" />
           <div>
             <div style="font-size:18px;line-height:1">FINDORA</div>
             <div class="tagline">Irányt mutat a legjobb ajánlatokhoz</div>
@@ -120,20 +124,33 @@
   </main>
 
   <script>
-    // ====== Partner link alapok ======
+    // ====== Partner beállítások ======
     const amazonTag = "findora30-20";
-    const amazonBase = "https://www.amazon.com/s?k="; // keresőre visszük a felhasználót
-    const alzaBase   = "#"; // TODO: AWIN/ALZA jóváhagyás után kicseréljük
-    const bookingBase= "#"; // TODO: CJ jóváhagyás után kicseréljük
+    const partners = {
+      amazon: {
+        name: "Amazon",
+        logo: "https://placehold.co/36x36/png?text=A",
+        link: (q) => `https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=${amazonTag}`
+      },
+      alza: {
+        name: "Alza",
+        logo: "https://placehold.co/36x36/png?text=Z",
+        link: () => "#"
+      },
+      booking: {
+        name: "Booking",
+        logo: "https://placehold.co/36x36/png?text=B",
+        link: () => "#"
+      }
+    };
 
-    // ====== Minta adatok (amíg nincs élő feed) ======
-    // Itt nyugodtan bővítheted; a kedvezmény százalék alapján jelvény jelenik meg.
+    // ====== Minta adatok (külső képek, hogy biztos betöltődjenek) ======
     const seed = [
       {
         title: "Gaming laptop",
         partner: "amazon",
         priceHUF: 299990,
-        img:"assets/img/samples/laptop.png",
+        img:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop",
         discount: 15,
         q:"gaming laptop"
       },
@@ -141,7 +158,7 @@
         title: "TV & Soundbar szett",
         partner: "amazon",
         priceHUF: 119990,
-        img:"assets/img/samples/tv.png",
+        img:"https://images.unsplash.com/photo-1587578932405-7fb0f87db5bf?q=80&w=1200&auto=format&fit=crop",
         discount: 25,
         q:"tv soundbar"
       },
@@ -149,7 +166,7 @@
         title: "Okosóra",
         partner: "alza",
         priceHUF: 17990,
-        img:"assets/img/samples/watch.png",
+        img:"https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=1200&auto=format&fit=crop",
         discount: 40,
         q:"okosóra"
       },
@@ -157,43 +174,27 @@
         title: "Hétvégi pihenés – Alsóörs",
         partner: "booking",
         priceHUF: 35990,
-        img:"assets/img/samples/hotel.png",
+        img:"https://images.unsplash.com/photo-1501117716987-c8e2aeea1f07?q=80&w=1200&auto=format&fit=crop",
         discount: 23,
-        q:"Balaton weekend"
+        q:"balaton hotel"
       }
     ];
 
-    // ====== Keresés, szűrés, render ======
     const resultsEl = document.getElementById("results");
     const tabsEl = document.getElementById("tabs");
     let activePartner = "all";
     let query = "";
 
-    function formatHUF(x){
-      return x.toLocaleString("hu-HU") + " Ft";
-    }
+    function formatHUF(x){ return x.toLocaleString("hu-HU") + " Ft"; }
 
     function partnerLink(item){
-      const q = encodeURIComponent(item.q || item.title);
-      if(item.partner === "amazon"){
-        return `${amazonBase}${q}&tag=${amazonTag}`;
-      }
-      if(item.partner === "alza"){
-        return alzaBase; // később: konkrét AWIN deep link
-      }
-      if(item.partner === "booking"){
-        return bookingBase; // később: CJ deeplink
-      }
-      return "#";
+      const p = partners[item.partner];
+      if (!p) return "#";
+      return p.link(item.q || item.title);
     }
 
     function brandIcon(partner){
-      const map = {
-        amazon: "assets/img/brands/amazon.png",
-        alza: "assets/img/brands/alza.png",
-        booking: "assets/img/brands/booking.png"
-      };
-      return map[partner] || "assets/img/brands/generic.png";
+      return partners[partner]?.logo || "https://placehold.co/36x36/png?text=?";
     }
 
     function render(){
@@ -208,6 +209,7 @@
       }
 
       for(const it of list){
+        const p = partners[it.partner];
         const a = document.createElement("a");
         a.href = partnerLink(it);
         a.target = "_blank";
@@ -216,12 +218,12 @@
         a.innerHTML = `
           <div class="badge save">–${it.discount}%</div>
           <div class="cover">
-            <img src="${it.img}" alt="${it.title}" onerror="this.style.opacity=.15" />
+            <img src="${it.img}" alt="${it.title}" onerror="this.src='https://placehold.co/600x400?text=K%C3%A9p%20nem%20el%C3%A9rhet%C5%91'"/>
           </div>
           <div class="body">
             <h3 class="title">${it.title}</h3>
             <div class="meta">
-              <span class="brandtag"><img src="${brandIcon(it.partner)}" alt=""> ${it.partner}</span>
+              <span class="brandtag"><img src="${brandIcon(it.partner)}" alt=""> ${p ? p.name : it.partner}</span>
               <span class="price">${formatHUF(it.priceHUF)}</span>
             </div>
             <div class="actions">
@@ -244,67 +246,15 @@
       render();
     });
 
-    // Keresés
+    // Search
     document.getElementById("searchForm").addEventListener("submit",(e)=>{
       e.preventDefault();
       query = (document.getElementById("q").value || "").trim().toLowerCase();
       render();
     });
 
-    // Első render
+    // First render
     render();
   </script>
-<script>
-  // 1) Egyszerű, beágyazott (data URI) tartalék kép – nincs külön fájl
-  const FALLBACK_IMG =
-    'data:image/svg+xml;utf8,' +
-    encodeURIComponent(`
-      <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
-        <defs>
-          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#e9eef6"/>
-            <stop offset="1" stop-color="#cbd7eb"/>
-          </linearGradient>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#g)"/>
-        <g fill="#6b7280" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
-          <circle cx="300" cy="165" r="36" fill="#9aa6bf"/>
-          <rect x="210" y="220" width="180" height="14" rx="7" fill="#9aa6bf"/>
-          <text x="300" y="265" font-size="16">Kép nem elérhető</text>
-        </g>
-      </svg>
-    `);
-
-  // 2) URL-normalizáló: // -> https://, http:// -> https://
-  function fixImgUrl(u) {
-    if (!u) return '';
-    if (u.startsWith('//')) return 'https:' + u;
-    if (u.startsWith('http://')) return 'https://' + u.slice(7);
-    return u;
-  }
-
-  // 3) Globális onerror: ha bármely <img> hibázik, cseréljük fallbackre
-  document.addEventListener('error', function (e) {
-    const t = e.target;
-    if (t && t.tagName === 'IMG') {
-      t.onerror = null;
-      t.src = FALLBACK_IMG;
-      t.classList.add('img-fallback');
-    }
-  }, true);
-
-  // 4) Oldal betöltésekor minden <img> src-jét https-re igazítjuk
-  window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('img').forEach(img => {
-      const fixed = fixImgUrl(img.getAttribute('src'));
-      if (fixed && fixed !== img.src) img.src = fixed;
-    });
-  });
-</script>
-<style>
-  /* A fallback képhez finom keret/árnyék, hogy ne legyen “törött” hatás */
-  .img-fallback { outline: 1px solid rgba(0,0,0,.06); border-radius: 10px; }
-</style>
 </body>
 </html>
-
