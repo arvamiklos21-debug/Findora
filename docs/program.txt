@@ -1,0 +1,66 @@
+[HU]
+akció
+olcsó laptop
+karácsonyi ajándék
+mikulás ajándék
+okostelefon akció
+fekete péntek ajánlatok
+tv vásárlás
+mosógép akció
+utazás belföldön
+wellness hétvége
+ajándék ötletek
+okosóra olcsón
+bútor akció
+divat ruhák
+konyhai eszközök
+kozmetikum akció
+sportfelszerelés
+kedvezmény kupon
+akciós repülőjegy
+nyári utazás
+autó kiegészítők
+játékkonzol akció
+karácsonyi dekoráció
+ékszer akció
+kávéfőző olcsón
+szállás akció
+üdülés ajánlat
+kerékpár akció
+gyerekjátékok
+utazási csomagok
+nyaralás last minute
+...
+
+[EN]
+christmas gift ideas
+cheap electronics
+holiday travel deals
+best smartphone discounts
+laptop sale
+fashion trends
+home decor offers
+black friday sale
+discount coupons
+sports accessories
+summer vacation
+romantic getaway
+beauty products sale
+smartwatch deals
+kitchen appliances discount
+affordable jewelry
+gaming console sale
+fitness equipment
+flight deals
+hotel offers
+travel packages
+budget gadgets
+winter clothing sale
+wellness weekend
+holiday decorations
+eco products
+pet supplies
+baby gifts
+tech accessories
+home improvement deals
+...
