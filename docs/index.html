@@ -146,19 +146,19 @@ function cardHTML(i){
 function showHome(){
   content.innerHTML="";
 
-  // --- AKCIÓS BLOKKOK ---
+  // --- Akciók (25-49%) ---
   const deals25 = ITEMS.filter(i=>i.discount>=25 && i.discount<50);
-  const deals50 = ITEMS.filter(i=>i.discount>=50);
-
   if(deals25.length){
     const s=document.createElement("section");
     s.className="section";
-    s.innerHTML=`<h2>🎁 Akciós ajánlatok (25%+)</h2><div class="grid"></div>`;
+    s.innerHTML=`<h2>🎁 Akciós ajánlatok (25–49%)</h2><div class="grid"></div>`;
     const grid=s.querySelector(".grid");
     deals25.forEach(i=>grid.innerHTML+=cardHTML(i));
     content.appendChild(s);
   }
 
+  // --- Nagy akciók (50%+) ---
+  const deals50 = ITEMS.filter(i=>i.discount>=50);
   if(deals50.length){
     const s=document.createElement("section");
     s.className="section";
@@ -168,7 +168,7 @@ function showHome(){
     content.appendChild(s);
   }
 
-  // --- PARTNER SZEKCIÓK ---
+  // --- Partner szekciók ---
   const partners=["Amazon","eMAG","Alza","Booking"];
   partners.forEach(p=>{
     const section=document.createElement("section");
