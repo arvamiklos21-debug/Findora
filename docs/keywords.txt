@@ -1,9 +1,126 @@
-akciós laptop
-akciós tv
-akciós okosóra
-akciós lego
-akciós robotporszivo
-Akció
-Kiárusítás
-Kedvezmény
-Karácsony
+# --- ÁLTALÁNOS KERESÉSI KULCSSZAVAK ---
+akciós ajánlatok
+kedvezmény
+leárazás
+kupon
+ingyenes szállítás
+ajándék ötlet
+karácsonyi ajándék
+black friday
+ünnepi akciók
+legjobb ár
+árösszehasonlítás
+online vásárlás
+webshop ajánlatok
+ajánlatok ma
+akció ma
+friss kedvezmények
+új akciók
+spórolj most
+discount deals
+best online offers
+hot deals
+today's sale
+new discounts
+shopping guide
+
+# --- TECH / ELEKTRONIKA ---
+laptop akció
+okostelefon
+tabletek
+okosóra
+headphones
+wireless earbuds
+smart home
+tv
+console
+gaming laptop
+tech sale
+electronics discount
+alza laptop
+amazon electronics
+cheap tech
+smartwatch deal
+headset offers
+
+# --- DIVAT / RUHA / CIPŐ ---
+aboutyou ruhák
+divat akció
+női ruházat
+férfi ruhák
+téli kabát
+cipő kedvezmény
+sportcipő akció
+divatos kiegészítők
+outfit inspiration
+aboutyou fashion
+clothing discount
+season sale
+summer fashion
+winter collection
+bags and accessories
+cheap shoes
+trendy style
+fashion offers
+
+# --- OTTHON / KERT / HÁZTARTÁS ---
+konyhai eszközök
+otthoni dekor
+bútor akció
+háztartási gép
+porszívó akció
+lámpák
+home decoration
+home appliances
+kitchen sale
+garden tools
+smart home accessories
+amazon home
+alza háztartás
+
+# --- UTAZÁS / SZÁLLÁS ---
+booking szállás
+booking utazás
+trip szállás
+hotel kedvezmény
+nyaralás olcsón
+olcsó repjegy
+wellness hétvége
+last minute deals
+booking vacation
+cheap hotels
+city break
+travel offer
+flight discount
+trip.com hotel
+trip travel package
+
+# --- ÉVAD / ESEMÉNY ALAPÚ ---
+karácsonyi akció
+mikulás meglepetés
+téli leárazás
+nyári kiárusítás
+black friday sale
+cyber monday
+valentin napi ajánlat
+születésnapi ajándék
+back to school sale
+holiday deals
+seasonal discounts
+gift for him
+gift for her
+best gift ideas
+
+# --- EGYÉB NÉPSZERŰ KULCSSZAVAK ---
+online rendelés
+gyors szállítás
+minőségi termék
+olcsó ár
+megbízható webshop
+trending now
+new arrivals
+must have items
+popular this week
+findora recommendations
+shopping inspiration
+affiliate offers
