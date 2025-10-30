@@ -254,6 +254,57 @@
     // Első render
     render();
   </script>
+<script>
+  // 1) Egyszerű, beágyazott (data URI) tartalék kép – nincs külön fájl
+  const FALLBACK_IMG =
+    'data:image/svg+xml;utf8,' +
+    encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e9eef6"/>
+            <stop offset="1" stop-color="#cbd7eb"/>
+          </linearGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#g)"/>
+        <g fill="#6b7280" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+          <circle cx="300" cy="165" r="36" fill="#9aa6bf"/>
+          <rect x="210" y="220" width="180" height="14" rx="7" fill="#9aa6bf"/>
+          <text x="300" y="265" font-size="16">Kép nem elérhető</text>
+        </g>
+      </svg>
+    `);
+
+  // 2) URL-normalizáló: // -> https://, http:// -> https://
+  function fixImgUrl(u) {
+    if (!u) return '';
+    if (u.startsWith('//')) return 'https:' + u;
+    if (u.startsWith('http://')) return 'https://' + u.slice(7);
+    return u;
+  }
+
+  // 3) Globális onerror: ha bármely <img> hibázik, cseréljük fallbackre
+  document.addEventListener('error', function (e) {
+    const t = e.target;
+    if (t && t.tagName === 'IMG') {
+      t.onerror = null;
+      t.src = FALLBACK_IMG;
+      t.classList.add('img-fallback');
+    }
+  }, true);
+
+  // 4) Oldal betöltésekor minden <img> src-jét https-re igazítjuk
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('img').forEach(img => {
+      const fixed = fixImgUrl(img.getAttribute('src'));
+      if (fixed && fixed !== img.src) img.src = fixed;
+    });
+  });
+</script>
+<style>
+  /* A fallback képhez finom keret/árnyék, hogy ne legyen “törött” hatás */
+  .img-fallback { outline: 1px solid rgba(0,0,0,.06); border-radius: 10px; }
+</style>
 </body>
 </html>
 
