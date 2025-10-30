@@ -34,7 +34,7 @@ a:hover{text-decoration:underline}
 
 .searchbar{display:flex;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,0.15);
   padding:10px;border-radius:12px;backdrop-filter:blur(2px)}
-.searchbar input, .searchbar select, .searchbar button{
+.searchbar input, .searchbar button{
   padding:10px;border-radius:10px;border:none;font-size:14px
 }
 .searchbar input{flex:1;min-width:200px}
@@ -56,8 +56,13 @@ main{max-width:1100px;margin:40px auto;padding:0 16px}
 }
 .section img.logo{height:22px}
 .grid{display:grid;gap:16px;padding:18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative}
 .thumb{height:130px;background:#e8eef7 center/cover no-repeat}
+.badge{
+  position:absolute;top:8px;left:8px;
+  background:#ff4d4f;color:#fff;font-weight:700;
+  padding:4px 8px;border-radius:6px;font-size:12px;
+}
 .body{padding:12px}
 .title{font-weight:700;margin-bottom:4px}
 .muted{color:var(--muted);font-size:12px}
@@ -96,14 +101,14 @@ function alza(q){return`https://www.alza.hu/search.htm?exps=${encodeURIComponent
 function booking(q){return`https://www.booking.com/searchresults.html?ss=${encodeURIComponent(q)}`;}
 
 const ITEMS=[
-  {title:"Olcsó laptop",partner:"Amazon",price:"129 990 Ft",url:amazon("laptop"),thumb:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800"},
-  {title:"Gaming laptop",partner:"eMAG",price:"299 990 Ft",url:emag("gaming laptop"),thumb:"https://images.unsplash.com/photo-1606813902917-cc9d9b0caa94?q=80&w=800"},
-  {title:"Okosóra akciók",partner:"Alza",price:"39 990 Ft",url:alza("okosora"),thumb:"https://images.unsplash.com/photo-1518441323433-7f6dbfbfb6f6?q=80&w=800"},
-  {title:"Vezeték nélküli fülhallgató",partner:"Amazon",price:"17 990 Ft",url:amazon("wireless earbuds"),thumb:"https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=800"},
-  {title:"Budapest wellness hétvége",partner:"Booking",price:"Ár változó",url:booking("Budapest wellness"),thumb:"https://images.unsplash.com/photo-1501117716987-c8e1ecb2101f?q=80&w=800"},
-  {title:"LEGO Creator Expert",partner:"Amazon",price:"59 990 Ft",url:amazon("LEGO creator"),thumb:"https://images.unsplash.com/photo-1586201375761-83865001e31b?q=80&w=800"},
-  {title:"Robotporszívó",partner:"Alza",price:"89 990 Ft",url:alza("robotporszivo"),thumb:"https://images.unsplash.com/photo-1581993192008-63e896f4f624?q=80&w=800"},
-  {title:"TV & Szórakozás",partner:"eMAG",price:"119 990 Ft",url:emag("okos tv"),thumb:"https://images.unsplash.com/photo-1512445239393-63e626ac6b86?q=80&w=800"}
+  {title:"Olcsó laptop",partner:"Amazon",price:"129 990 Ft",discount:25,url:amazon("laptop"),thumb:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800"},
+  {title:"Gaming laptop",partner:"eMAG",price:"299 990 Ft",discount:10,url:emag("gaming laptop"),thumb:"https://images.unsplash.com/photo-1606813902917-cc9d9b0caa94?q=80&w=800"},
+  {title:"Okosóra akciók",partner:"Alza",price:"39 990 Ft",discount:50,url:alza("okosora"),thumb:"https://images.unsplash.com/photo-1518441323433-7f6dbfbfb6f6?q=80&w=800"},
+  {title:"Vezeték nélküli fülhallgató",partner:"Amazon",price:"17 990 Ft",discount:15,url:amazon("wireless earbuds"),thumb:"https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=800"},
+  {title:"Budapest wellness hétvége",partner:"Booking",price:"Ár változó",discount:30,url:booking("Budapest wellness"),thumb:"https://images.unsplash.com/photo-1501117716987-c8e1ecb2101f?q=80&w=800"},
+  {title:"LEGO Creator Expert",partner:"Amazon",price:"59 990 Ft",discount:60,url:amazon("LEGO creator"),thumb:"https://images.unsplash.com/photo-1586201375761-83865001e31b?q=80&w=800"},
+  {title:"Robotporszívó",partner:"Alza",price:"89 990 Ft",discount:40,url:alza("robotporszivo"),thumb:"https://images.unsplash.com/photo-1581993192008-63e896f4f624?q=80&w=800"},
+  {title:"TV & Szórakozás",partner:"eMAG",price:"119 990 Ft",discount:55,url:emag("okos tv"),thumb:"https://images.unsplash.com/photo-1512445239393-63e626ac6b86?q=80&w=800"}
 ];
 
 const logos={
@@ -123,8 +128,47 @@ form.addEventListener("submit",e=>{
   if(val) showSearch(val); else showHome();
 });
 
+function cardHTML(i){
+  const badge = i.discount>=25 ? `<span class="badge">-${i.discount}%</span>` : "";
+  return `
+  <div class="card">
+    ${badge}
+    <div class="thumb" style="background-image:url('${i.thumb}')"></div>
+    <div class="body">
+      <div class="title">${i.title}</div>
+      <div class="muted">${i.partner}</div>
+      <div class="price">${i.price}</div>
+    </div>
+    <div class="cta"><a href="${i.url}" target="_blank" rel="nofollow sponsored noopener">Megnyitás</a></div>
+  </div>`;
+}
+
 function showHome(){
   content.innerHTML="";
+
+  // --- AKCIÓS BLOKKOK ---
+  const deals25 = ITEMS.filter(i=>i.discount>=25 && i.discount<50);
+  const deals50 = ITEMS.filter(i=>i.discount>=50);
+
+  if(deals25.length){
+    const s=document.createElement("section");
+    s.className="section";
+    s.innerHTML=`<h2>🎁 Akciós ajánlatok (25%+)</h2><div class="grid"></div>`;
+    const grid=s.querySelector(".grid");
+    deals25.forEach(i=>grid.innerHTML+=cardHTML(i));
+    content.appendChild(s);
+  }
+
+  if(deals50.length){
+    const s=document.createElement("section");
+    s.className="section";
+    s.innerHTML=`<h2>🔥 Nagy kedvezmények (50%+)</h2><div class="grid"></div>`;
+    const grid=s.querySelector(".grid");
+    deals50.forEach(i=>grid.innerHTML+=cardHTML(i));
+    content.appendChild(s);
+  }
+
+  // --- PARTNER SZEKCIÓK ---
   const partners=["Amazon","eMAG","Alza","Booking"];
   partners.forEach(p=>{
     const section=document.createElement("section");
@@ -132,18 +176,7 @@ function showHome(){
     const logo=logos[p]?`<img src="${logos[p]}" class="logo" alt="${p}">`:"";
     section.innerHTML=`<h2>${logo} ${p} ajánlatok</h2><div class="grid"></div>`;
     const grid=section.querySelector(".grid");
-    ITEMS.filter(i=>i.partner===p).forEach(i=>{
-      grid.innerHTML+=`
-        <div class="card">
-          <div class="thumb" style="background-image:url('${i.thumb}')"></div>
-          <div class="body">
-            <div class="title">${i.title}</div>
-            <div class="muted">${i.partner}</div>
-            <div class="price">${i.price}</div>
-          </div>
-          <div class="cta"><a href="${i.url}" target="_blank" rel="nofollow sponsored noopener">Megnyitás</a></div>
-        </div>`;
-    });
+    ITEMS.filter(i=>i.partner===p).forEach(i=>grid.innerHTML+=cardHTML(i));
     content.appendChild(section);
   });
 }
@@ -152,26 +185,11 @@ function showSearch(val){
   const results=ITEMS.filter(i=>i.title.toLowerCase().includes(val)||i.partner.toLowerCase().includes(val));
   content.innerHTML=`<h2 style="margin-bottom:16px">Keresés: „${val}”</h2><div class="grid"></div>`;
   const grid=content.querySelector(".grid");
-  if(results.length){
-    results.forEach(i=>{
-      grid.innerHTML+=`
-        <div class="card">
-          <div class="thumb" style="background-image:url('${i.thumb}')"></div>
-          <div class="body">
-            <div class="title">${i.title}</div>
-            <div class="muted">${i.partner}</div>
-            <div class="price">${i.price}</div>
-          </div>
-          <div class="cta"><a href="${i.url}" target="_blank">Megnyitás</a></div>
-        </div>`;
-    });
-  } else {
-    grid.innerHTML=`<p>Nincs találat. Próbáld újra más kifejezéssel.</p>`;
-  }
+  if(results.length) results.forEach(i=>grid.innerHTML+=cardHTML(i));
+  else grid.innerHTML=`<p>Nincs találat. Próbáld újra más kifejezéssel.</p>`;
 }
 
 showHome();
 </script>
 </body>
 </html>
-
