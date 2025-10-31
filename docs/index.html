@@ -6,124 +6,89 @@
 <title>Findora – Irányt mutat a legjobb ajánlatokhoz</title>
 <meta name="description" content="A Findora segít megtalálni a legjobb akciókat és ajánlatokat: Amazon, Alza, About You, Booking és más partnerek kedvezményei egy helyen." />
 <meta name="robots" content="index,follow" />
-
-<link rel="icon" href="https://i.imgur.com/owuYY0p.png" />
 <link rel="canonical" href="https://arvamiklos21.github.io/Findora/" />
 
 <style>
-:root {
-  --primary:#002b5b;
+:root{
+  --primary:#053063;
   --gold:#ffd166;
-  --card-bg:rgba(255,255,255,0.9);
+  --card:#ffffffee;
   --border:#d9e1ec;
 }
 
-/* --- Ünnepi háttér --- */
-body {
-  font-family:system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;
-  background: linear-gradient(180deg, #dfe9f3 0%, #f7f9fb 60%, #ffffff 100%), 
-              url('https://www.transparenttextures.com/patterns/white-carbon.png');
-  background-attachment: fixed;
-  color:#111;
+/* Ünnepi háttér: színátmenet + SVG hópehely pattern */
+body{
   margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #ffecd2 0%, transparent 55%),
+    radial-gradient(1000px 600px at 110% 0%, #bee3f8 0%, transparent 60%),
+    linear-gradient(180deg, #f0f6ff 0%, #f9fbff 60%, #ffffff 100%),
+    url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>\
+<g fill='none' stroke='rgba(255,255,255,.35)' stroke-width='2'>\
+<path d='M60 4v112M4 60h112'/>\
+<path d='M22 22l76 76M98 22L22 98'/>\
+</g>\
+</svg>");
+  background-attachment: fixed,fixed,fixed,fixed;
+  color:#111;
   overflow-x:hidden;
 }
 
-/* --- Fejlesztés badge --- */
-.dev-badge {
-  position:fixed;top:8px;left:8px;z-index:20;
-  background:linear-gradient(90deg,#a7f3d0,#6ee7b7);
-  color:#064e3b;font-weight:700;padding:6px 12px;border-radius:999px;
-  font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.15);
-}
-
-/* --- Hero --- */
-.hero {
-  background:linear-gradient(90deg,#1a4b8c,#003366);
-  color:#fff;text-align:center;padding:20px;
-  box-shadow:inset 0 -4px 25px rgba(255,215,0,0.4);
-}
-.hero h1 {color:var(--gold);margin:6px 0;}
-.hero p {margin:0;font-size:15px;}
-.promo {
-  margin:12px auto;background:linear-gradient(90deg,#ffcc80,#ffd166,#ffe9b3);
-  padding:8px 12px;border-radius:10px;color:#111;font-weight:600;
-  display:inline-block;
-}
-
-/* --- Kategória sáv --- */
-.categories {
-  display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:10px 0;
-}
-.catbtn {
-  border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 14px;
-  cursor:pointer;font-weight:600;font-size:14px;
-}
-.catbtn.active {background:linear-gradient(90deg,#ffd166,#ffb347);}
-
-/* --- Bannerek --- */
-.side-banner {
-  position:fixed;top:50%;transform:translateY(-50%);
-  width:180px;z-index:10;
-}
-.side-banner img {width:100%;border-radius:12px;}
-.side-left {left:8px;}
-.side-right {right:8px;}
-@media(max-width:980px){.side-banner{display:none;}}
-
-/* --- Tartalom és kártyák --- */
-main {max-width:1100px;margin:20px auto;padding:0 16px;}
-.section {
-  background:var(--card-bg);
-  border:1px solid var(--border);
-  border-radius:12px;
-  margin-bottom:22px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
-.section h2 {
-  background:#e8edf4;
-  border-radius:12px 12px 0 0;
-  padding:10px 16px;
-  font-size:18px;
-  margin:0;
-  display:flex;align-items:center;gap:10px;
-}
-
-/* --- Görgethető vízszintes sáv --- */
-.carousel {
-  display:flex;gap:14px;padding:14px;overflow-x:auto;
-  scroll-snap-type:x mandatory;
-}
-.carousel::-webkit-scrollbar {height:8px;}
-.carousel::-webkit-scrollbar-thumb {background:#cbd5e1;border-radius:10px;}
-
-/* --- Kártyák --- */
-.card {
-  min-width:230px;max-width:230px;height:300px;
-  background:#fff;border:1px solid #e5e7eb;border-radius:12px;
-  overflow:hidden;scroll-snap-align:start;
-  transition:transform 0.2s, box-shadow 0.2s;
-}
-.card:hover {transform:translateY(-5px);box-shadow:0 8px 18px rgba(0,0,0,0.12);}
-.thumb {height:150px;background:#eef1f7;position:relative;}
-.thumb img {width:100%;height:100%;object-fit:cover;}
-.badge {position:absolute;top:8px;left:8px;background:#ff4d4f;color:#fff;font-weight:700;padding:4px 8px;border-radius:6px;font-size:12px;}
-.body {padding:10px;}
-.title {font-weight:700;font-size:14px;}
-.muted {color:#666;font-size:12px;display:flex;align-items:center;gap:6px;}
-.muted img {width:16px;height:16px;}
-.price {font-weight:800;margin-top:6px;}
-.cta {text-align:center;padding:10px;}
-.cta a {background:linear-gradient(90deg,#ffd166,#ffb347);padding:8px 12px;border-radius:8px;font-weight:700;color:#111;text-decoration:none;}
-
-/* --- Hóesés --- */
-.snow{pointer-events:none;position:fixed;inset:0;overflow:hidden;z-index:5;}
+/* enyhe hóesés */
+.snow{pointer-events:none;position:fixed;inset:0;z-index:4;overflow:hidden}
 .flake{position:absolute;top:-10px;width:6px;height:6px;border-radius:50%;
-background:rgba(255,255,255,0.9);animation:fall linear infinite;}
-@keyframes fall{0%{transform:translateY(-10px);}100%{transform:translateY(110vh);}}
+background:rgba(255,255,255,.95);box-shadow:0 0 6px rgba(255,255,255,.9);
+animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh)}}
 
-/* --- Lábjegyzet --- */
-footer{text-align:center;padding:20px;background:var(--primary);color:#fff;margin-top:40px;}
+/* fejlesztés badge */
+.dev-badge{position:fixed;top:8px;left:8px;z-index:20;background:linear-gradient(90deg,#a7f3d0,#6ee7b7);color:#064e3b;font-weight:700;padding:6px 12px;border-radius:999px;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+
+/* hero */
+.hero{background:linear-gradient(90deg,#1a4b8c,#053063);color:#fff;text-align:center;padding:20px 16px;box-shadow:inset 0 -4px 25px rgba(255,215,0,.35)}
+.hero h1{margin:6px 0;color:var(--gold)}
+.promo{display:inline-block;margin:10px 0;background:linear-gradient(90deg,#ffcc80,#ffd166,#ffe9b3);color:#111;padding:8px 12px;border-radius:10px;font-weight:700}
+
+/* kategóriák */
+.categories{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:8px 0}
+.catbtn{border:1px solid #dde4ef;background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:700}
+.catbtn.active{background:linear-gradient(90deg,#ffd166,#ffb347)}
+
+/* oldalsó bannerek – beépített SVG-k, nem törnek el */
+.side-banner{position:fixed;top:50%;transform:translateY(-50%);width:190px;z-index:10}
+.side-banner img{width:100%;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.side-left{left:10px}
+.side-right{right:10px}
+@media(max-width:980px){.side-banner{display:none}}
+
+/* tartalom */
+main{max-width:1100px;margin:20px auto;padding:0 16px}
+.section{background:var(--card);border:1px solid var(--border);border-radius:12px;margin:22px 0;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.section h2{margin:0;padding:10px 16px;background:#e8edf4;border-radius:12px 12px 0 0;font-size:18px;display:flex;gap:10px;align-items:center}
+
+/* vízszintes, scrollozható sorok */
+.carousel{display:flex;gap:14px;padding:14px;overflow-x:auto;scroll-snap-type:x mandatory}
+.carousel::-webkit-scrollbar{height:8px}
+.carousel::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:10px}
+
+/* kártyák */
+.card{min-width:230px;max-width:230px;height:300px;background:#fff;border:1px solid #edf1f6;border-radius:12px;overflow:hidden;scroll-snap-align:start;transition:transform .2s, box-shadow .2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 22px rgba(0,0,0,.15)}
+.thumb{height:150px;background:#eef2f9;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover;background:linear-gradient(45deg,#eef2ff,#f8fbff)}
+.badge{position:absolute;top:8px;left:8px;background:#e11d48;color:#fff;font-weight:800;padding:4px 8px;border-radius:6px;font-size:12px}
+.body{padding:10px}
+.title{font-weight:800;font-size:14px}
+.muted{color:#667085;font-size:12px;display:flex;align-items:center;gap:6px}
+.muted img{width:16px;height:16px;background:#fff;border:1px solid #e5e7eb;padding:2px;border-radius:4px}
+.price{font-weight:900;margin-top:6px}
+.cta{text-align:center;padding:10px}
+.cta a{display:inline-block;background:linear-gradient(90deg,#ffd166,#ffb347);padding:8px 12px;border-radius:8px;font-weight:800;color:#111;text-decoration:none}
+
+/* lábléc */
+footer{text-align:center;padding:22px;background:var(--primary);color:#fff;margin-top:40px}
 </style>
 </head>
 <body>
@@ -131,12 +96,39 @@ footer{text-align:center;padding:20px;background:var(--primary);color:#fff;margi
 <div class="dev-badge">🛠️ Folyamatos fejlesztés</div>
 <div class="snow"></div>
 
-<!-- Bannerek -->
+<!-- OLDALSÁV BANNEREK – data-URI SVG (stabil) -->
 <div class="side-banner side-left">
-  <img src="https://i.imgur.com/xKuYqRp.png" alt="Black Friday">
+  <img alt="Black Friday" src="data:image/svg+xml;utf8,
+  <svg xmlns='http://www.w3.org/2000/svg' width='400' height='700' viewBox='0 0 400 700'>
+    <defs>
+      <linearGradient id='g' x1='0' x2='1'>
+        <stop offset='0' stop-color='#111'/>
+        <stop offset='1' stop-color='#333'/>
+      </linearGradient>
+    </defs>
+    <rect width='100%' height='100%' fill='url(#g)' rx='24'/>
+    <text x='50%' y='46%' fill='white' font-size='54' font-family='Arial Black' text-anchor='middle'>BLACK</text>
+    <text x='50%' y='56%' fill='white' font-size='54' font-family='Arial Black' text-anchor='middle'>FRIDAY</text>
+    <circle cx='40' cy='40' r='6' fill='#ffd166'/>
+    <circle cx='360' cy='80' r='5' fill='#ffd166'/>
+    <circle cx='60' cy='640' r='6' fill='#ffd166'/>
+  </svg>" />
 </div>
 <div class="side-banner side-right">
-  <img src="https://i.imgur.com/6qYkDfX.png" alt="Merry Christmas">
+  <img alt="Merry Christmas" src="data:image/svg+xml;utf8,
+  <svg xmlns='http://www.w3.org/2000/svg' width='400' height='700' viewBox='0 0 400 700'>
+    <defs>
+      <linearGradient id='r' x1='0' x2='1'>
+        <stop offset='0' stop-color='#b91c1c'/>
+        <stop offset='1' stop-color='#ef4444'/>
+      </linearGradient>
+    </defs>
+    <rect width='100%' height='100%' fill='url(#r)' rx='24'/>
+    <text x='50%' y='46%' fill='white' font-size='48' font-family='Georgia' text-anchor='middle'>Merry</text>
+    <text x='50%' y='58%' fill='white' font-size='52' font-family='Georgia' text-anchor='middle'>Christmas</text>
+    <rect x='40' y='620' width='320' height='18' fill='#16a34a' rx='9'/>
+    <rect x='40' y='60' width='320' height='18' fill='#16a34a' rx='9'/>
+  </svg>" />
 </div>
 
 <header class="hero">
@@ -157,102 +149,117 @@ footer{text-align:center;padding:20px;background:var(--primary);color:#fff;margi
 <footer>© 2025 Findora • Partnerlinkek: Amazon, Alza, Booking, About You</footer>
 
 <script>
-const AMAZON_TAG="findora30-20";
-const amazon=q=>`https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=${AMAZON_TAG}`;
-const alza=q=>`https://www.alza.hu/search.htm?exps=${encodeURIComponent(q)}`;
-const booking=q=>`https://www.booking.com/searchresults.html?ss=${encodeURIComponent(q)}`;
-const aboutyou=q=>`https://www.aboutyou.hu/kereses?term=${encodeURIComponent(q)}`;
+/* partner linkek */
+const AMAZON_TAG = "findora30-20";
+const amazon = q => `https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=${AMAZON_TAG}`;
+const alza    = q => `https://www.alza.hu/search.htm?exps=${encodeURIComponent(q)}`;
+const booking = q => `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(q)}`;
+const aboutyou= q => `https://www.aboutyou.hu/kereses?term=${encodeURIComponent(q)}`;
 
-const LOGO={
-  Amazon:"https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-  Alza:"https://upload.wikimedia.org/wikipedia/commons/d/d2/Alza.cz_logo.svg",
-  Booking:"https://upload.wikimedia.org/wikipedia/commons/e/e6/Booking.com_logo.svg",
-  AboutYou:"https://upload.wikimedia.org/wikipedia/commons/7/79/About_You_logo.svg"
+/* logók – kontraszttal látszani fognak */
+const LOGO = {
+  Amazon:   "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+  Alza:     "https://upload.wikimedia.org/wikipedia/commons/d/d2/Alza.cz_logo.svg",
+  Booking:  "https://upload.wikimedia.org/wikipedia/commons/e/e6/Booking.com_logo.svg",
+  AboutYou: "https://upload.wikimedia.org/wikipedia/commons/7/79/About_You_logo.svg"
 };
 
-const IMG_MAP={
-  laptop:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200",
-  tv:"https://images.unsplash.com/photo-1512445239393-63e626ac6b86?q=80&w=1200",
-  cipő:"https://images.unsplash.com/photo-1596464716121-5d0ae0e87dfd?q=80&w=1200",
-  ruha:"https://images.unsplash.com/photo-1542062703-2a3b6c84b6d0?q=80&w=1200",
-  wellness:"https://images.unsplash.com/photo-1501117716987-c8e1ecb2101f?q=80&w=1200",
-  hotel:"https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200",
-  kabát:"https://images.unsplash.com/photo-1603251579431-8041402bdeda?q=80&w=1200",
-  kesztyű:"https://images.unsplash.com/photo-1584367369853-8b966cf24345?q=80&w=1200"
+/* tematikus képek kulcsszóra – ha bármi gond, automatikus csere a partner logóra */
+const IMG_MAP = {
+  laptop: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200",
+  tv: "https://images.unsplash.com/photo-1512445239393-63e626ac6b86?q=80&w=1200",
+  cipő: "https://images.unsplash.com/photo-1596464716121-5d0ae0e87dfd?q=80&w=1200",
+  ruha: "https://images.unsplash.com/photo-1542062703-2a3b6c84b6d0?q=80&w=1200",
+  kabát: "https://images.unsplash.com/photo-1603251579431-8041402bdeda?q=80&w=1200",
+  okosóra: "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=1200",
+  wellness: "https://images.unsplash.com/photo-1501117716987-c8e1ecb2101f?q=80&w=1200",
+  hotel: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200",
+  fülhallgató: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1200",
+  kesztyű: "https://images.unsplash.com/photo-1584367369853-8b966cf24345?q=80&w=1200"
 };
 
-function getImage(t,partner){
-  const k=Object.keys(IMG_MAP).find(x=>t.toLowerCase().includes(x));
-  return k?IMG_MAP[k]:LOGO[partner];
+function getImageFor(title, partner){
+  const t = title.toLowerCase();
+  for(const k of Object.keys(IMG_MAP)){ if(t.includes(k)) return IMG_MAP[k]; }
+  return LOGO[partner]; // biztos fallback
 }
 
-/* --- Adatok --- */
-const ITEMS=[
-  {title:"Olcsó laptop",partner:"Amazon",price:"129 990 Ft",discount:25,url:amazon("laptop"),category:"tech"},
-  {title:"Gaming laptop RTX",partner:"Amazon",price:"299 990 Ft",discount:35,url:amazon("gaming laptop rtx"),category:"tech"},
-  {title:"Okosóra akció",partner:"Alza",price:"39 990 Ft",discount:40,url:alza("okosóra"),category:"tech"},
-  {title:"Smart TV 55”",partner:"Amazon",price:"119 990 Ft",discount:55,url:amazon("smart tv"),category:"tech"},
-  {title:"Női cipők -40%",partner:"AboutYou",price:"Változó",discount:40,url:aboutyou("női cipő"),category:"fashion"},
-  {title:"Férfi kabát -35%",partner:"AboutYou",price:"Változó",discount:35,url:aboutyou("férfi kabát"),category:"fashion"},
-  {title:"Budapest wellness hétvége",partner:"Booking",price:"Változó",discount:30,url:booking("Budapest wellness"),category:"travel"},
-  {title:"Síelés Ausztria",partner:"Booking",price:"Változó",discount:25,url:booking("Austria ski"),category:"travel"}
+/* adatok */
+const ITEMS = [
+  {title:"Olcsó laptop",              partner:"Amazon",   price:"129 990 Ft", discount:25, url:amazon("laptop"),               category:"tech"},
+  {title:"Gaming laptop RTX",         partner:"Amazon",   price:"299 990 Ft", discount:35, url:amazon("gaming laptop rtx"),   category:"tech"},
+  {title:"Okosóra akció",             partner:"Alza",     price:"39 990 Ft",  discount:40, url:alza("okosóra"),               category:"tech"},
+  {title:"Smart TV 55”",              partner:"Amazon",   price:"119 990 Ft", discount:55, url:amazon("smart tv"),            category:"tech"},
+  {title:"Női cipők -40%",            partner:"AboutYou", price:"Változó",    discount:40, url:aboutyou("női cipő"),          category:"fashion"},
+  {title:"Férfi kabát -35%",          partner:"AboutYou", price:"Változó",    discount:35, url:aboutyou("férfi kabát"),       category:"fashion"},
+  {title:"Budapest wellness hétvége", partner:"Booking",  price:"Változó",    discount:30, url:booking("Budapest wellness"),  category:"travel"},
+  {title:"Síelés Ausztria",           partner:"Booking",  price:"Változó",    discount:25, url:booking("Austria ski"),        category:"travel"}
 ];
 
+/* kártya */
 function card(it){
-  const img=getImage(it.title,it.partner);
-  const badge=it.discount>=25?`<span class='badge'>-${it.discount}%</span>`:"";
-  const logo=`<img src="${LOGO[it.partner]}" alt="${it.partner} logo">`;
+  const img = getImageFor(it.title, it.partner);
+  const badge = it.discount>=25 ? `<span class="badge">-${it.discount}%</span>` : "";
+  const logo  = `<img src="${LOGO[it.partner]}" alt="${it.partner} logo">`;
   return `<div class="card">${badge}
-    <div class="thumb"><img src="${img}" onerror="this.src='${LOGO[it.partner]}'" alt="${it.title}"></div>
-    <div class="body"><div class="title">${it.title}</div><div class="muted">${logo} ${it.partner}</div><div class="price">${it.price}</div></div>
+    <div class="thumb">
+      <img src="${img}" alt="${it.title}" onerror="this.src='${LOGO[it.partner]}'">
+    </div>
+    <div class="body">
+      <div class="title">${it.title}</div>
+      <div class="muted">${logo} ${it.partner}</div>
+      <div class="price">${it.price}</div>
+    </div>
     <div class="cta"><a href="${it.url}" target="_blank" rel="nofollow noopener">Megnézem</a></div>
   </div>`;
 }
 
-/* --- Render --- */
-const content=document.getElementById("content");
+/* render */
+const content = document.getElementById('content');
 
-function section(title,arr,cls){
-  const s=document.createElement("section");
-  s.className="section "+cls;
-  s.innerHTML=`<h2>${title}</h2><div class="carousel"></div>`;
-  arr.forEach(a=>s.querySelector(".carousel").insertAdjacentHTML("beforeend",card(a)));
+function section(title, arr){
+  if(!arr.length) return;
+  const s = document.createElement('section');
+  s.className = 'section';
+  s.innerHTML = `<h2>${title}</h2><div class="carousel"></div>`;
+  const c = s.querySelector('.carousel');
+  arr.forEach(it => c.insertAdjacentHTML('beforeend', card(it)));
   content.appendChild(s);
 }
 
 function render(cat){
-  content.innerHTML="";
-  let list=cat==="all"?ITEMS:ITEMS.filter(i=>i.category===cat);
-  const deals25=list.filter(i=>i.discount>=25&&i.discount<50);
-  const deals50=list.filter(i=>i.discount>=50);
-  if(deals25.length)section("🎁 Akciók 25–49%",deals25,"deals25");
-  if(deals50.length)section("🔥 50%+ kedvezmények",deals50,"deals50");
-  const groups=[...new Set(list.map(i=>i.partner))];
-  groups.forEach(p=>{
-    const items=list.filter(i=>i.partner===p);
-    section(`${p} ajánlatok`,items,"partner");
+  content.innerHTML = '';
+  const list  = (cat==='all') ? ITEMS : ITEMS.filter(i=>i.category===cat);
+  const d25   = list.filter(i=>i.discount>=25 && i.discount<50);
+  const d50   = list.filter(i=>i.discount>=50);
+  section("🎁 Akciók 25–49%", d25);
+  section("🔥 50%+ kedvezmények", d50);
+  ["Amazon","AboutYou","Alza","Booking"].forEach(p=>{
+    const arr = list.filter(i=>i.partner===p);
+    section(`${p} ajánlatok`, arr);
   });
 }
 
-/* --- Kat gombok --- */
-document.querySelectorAll(".catbtn").forEach(b=>{
-  b.onclick=()=>{document.querySelectorAll(".catbtn").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");render(b.dataset.cat);}
+/* kategória kapcsolók */
+document.querySelectorAll('.catbtn').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('.catbtn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); render(b.dataset.cat);
+  };
 });
 
-/* --- Indulás --- */
-render("all");
+/* indulás */
+render('all');
 
-/* --- Hóesés --- */
+/* hóesés generálás */
 (function snow(){
   const wrap=document.querySelector('.snow');
-  for(let i=0;i<25;i++){
-    const f=document.createElement('div');
-    f.className='flake';
+  for(let i=0;i<30;i++){
+    const f=document.createElement('div'); f.className='flake';
     f.style.left=Math.random()*100+'vw';
-    f.style.animationDuration=(8+Math.random()*8)+'s';
-    f.style.width=f.style.height=(3+Math.random()*4)+'px';
-    f.style.animationDelay=Math.random()*-10+'s';
+    f.style.animationDuration=(8+Math.random()*10)+'s';
+    f.style.width=f.style.height=(3+Math.random()*5)+'px';
+    f.style.animationDelay=(Math.random()*-10)+'s';
     wrap.appendChild(f);
   }
 })();
