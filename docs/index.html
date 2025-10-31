@@ -7,32 +7,27 @@
   <title>Findora – Irányt mutat a legjobb ajánlatokhoz</title>
   <meta name="description" content="A Findora segít megtalálni a legjobb akciókat és ajánlatokat: Amazon, Alza, About You, Booking és más partnerek kedvezményei egy helyen." />
   <meta name="keywords" content="Findora, akció, kupon, kedvezmény, Amazon, Alza, About You, Booking, olcsó laptop, cipő, ruha, wellness" />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
-  <meta name="theme-color" content="#003366" />
 
-  <!-- Canonical / hreflang -->
+  <!-- Indexelés -->
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://arvamiklos21.github.io/Findora/" />
   <link rel="alternate" href="https://arvamiklos21.github.io/Findora/" hreflang="hu" />
 
-  <!-- Google Search Console (csak ezt cseréld ki a saját kódodra) -->
-  <meta name="google-site-verification" content="google-site-verification" content="VPPrxK3oUXBraAfleBQBviQ1vqX18bXtnffmojIq8-U" />
+  <!-- Google Search Console (hagyd meg a saját kódodat, ha már beállítottad) -->
+  <meta name="google-site-verification" content="vDPKx3UXBaAFpEBO4fQXqrX8bXr6mjlogt8qUr" />
 
-  <!-- Ikonok -->
+  <!-- Favikon -->
   <link rel="icon" href="assets/img/findora_mark.png" />
-  <link rel="apple-touch-icon" href="assets/img/findora_mark.png" />
 
-  <!-- Preconnect (gyorsítás képekhez) -->
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin />
-
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="hu_HU" />
   <meta property="og:site_name" content="Findora" />
   <meta property="og:title" content="Findora – Irányt mutat a legjobb ajánlatokhoz" />
   <meta property="og:description" content="Válogatott akciók és ajánlatok magyar felhasználóknak. Amazon, Alza, About You, Booking és más partnerek." />
   <meta property="og:url" content="https://arvamiklos21.github.io/Findora/" />
   <meta property="og:image" content="https://arvamiklos21.github.io/Findora/assets/img/findora-header.png" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Findora – Irányt mutat a legjobb ajánlatokhoz" />
   <meta name="twitter:description" content="A legjobb akciók és kuponok egy helyen. Nézd meg a Findora válogatásait!" />
@@ -63,59 +58,158 @@
   </script>
 
   <style>
-    :root{ --primary:#003366; --gold:#ffd166; --text:#111; --muted:#6b7280; --card:rgba(255,255,255,0.95); --border:#e5e7eb;}
+    :root{
+      --primary:#003366;
+      --primary-2:#1a4b8c;
+      --gold:#ffd166;
+      --text:#111;
+      --muted:#6b7280;
+      --card:rgba(255,255,255,0.92);
+      --border:#e5e7eb;
+      --cta1:#ffcc80;
+      --cta2:#ffd166;
+    }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,#f0f4f8 0%,#fff 100%);color:var(--text);background-image:url("https://www.transparenttextures.com/patterns/sandpaper.png")}
-    a{color:#0a66c2;text-decoration:none} a:hover{text-decoration:underline}
 
-    .hero{width:100%;min-height:160px;background:linear-gradient(90deg,#1a4b8c,#003366);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px 10px}
+    /* === HÁTTÉR: lágy színátmenet + finom textúra === */
+    body{
+      font-family:system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--text);
+      background-image:
+        linear-gradient(180deg, #edf2f7 0%, #e9eef5 40%, #ffffff 100%),
+        url("https://www.transparenttextures.com/patterns/cubes.png");
+      background-attachment: fixed;
+      overflow-x:hidden;
+    }
+    a{color:#0a66c2;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* HERO – enyhe ünnepi „glow” */
+    .hero{
+      width:100%;
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      padding:14px 10px;
+      position:relative;overflow:hidden;
+      background:linear-gradient(90deg,var(--primary-2),var(--primary));
+      /* finom, aranyos fény alul */
+      box-shadow: inset 0 -6px 30px rgba(255, 209, 102, 0.25);
+    }
     .hero-inner{max-width:1100px;width:100%}
-    .brand{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:6px}
+    .brand{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:8px}
     .brand img{height:46px;border-radius:10px;background:#123;box-shadow:0 2px 6px rgba(0,0,0,.2)}
     .hero h1{font-size:clamp(20px,3.5vw,32px);color:var(--gold)}
     .hero p{font-size:clamp(13px,1.7vw,16px)}
-    .promo{margin:8px auto 10px;background:linear-gradient(90deg,#ffcc80,#ffd166,#ffe9b3);color:#111;padding:7px 10px;border-radius:10px;max-width:780px;font-weight:600}
+    .promo{
+      margin:10px auto 12px;
+      background:linear-gradient(90deg,#ffcc80,#ffd166,#ffe9b3);
+      color:#111;padding:7px 10px;border-radius:12px;max-width:860px;font-weight:600;
+      box-shadow:0 4px 10px rgba(0,0,0,.12);
+    }
 
-    .searchbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-    .searchbar input,.searchbar button{padding:10px;border:none;border-radius:10px;font-size:14px}
+    /* Kategória sáv */
+    .categories{
+      display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px auto 0;
+    }
+    .catbtn{
+      border:1px solid #d1d5db;background:#fff;border-radius:999px;padding:8px 12px;
+      cursor:pointer;font-weight:600;font-size:14px
+    }
+    .catbtn:hover{background:#f5f6f8}
+    .catbtn.active{background:linear-gradient(90deg,var(--cta1),var(--cta2));color:#111;border-color:#f6d27a}
+
+    /* SEARCH */
+    .searchbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+    .searchbar input,.searchbar button{
+      padding:10px;border:none;border-radius:10px;font-size:14px
+    }
     .searchbar input{min-width:220px;max-width:360px;flex:1}
-    .searchbar button{background:var(--gold);color:#111;font-weight:700;cursor:pointer}
+    .searchbar button{
+      background:linear-gradient(90deg,var(--cta1),var(--cta2));
+      color:#111;font-weight:700;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15)
+    }
 
-    main{max-width:1100px;margin:26px auto;padding:0 16px}
-    .section{background:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:12px;margin-bottom:26px;box-shadow:0 3px 8px rgba(0,0,0,.06);backdrop-filter:blur(4px);transition:.3s}
-    .section:hover{box-shadow:0 5px 14px rgba(0,0,0,.08)}
-    .section h2{font-size:20px;padding:12px 16px;background:#e2e8f0;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:10px}
+    /* OLDALSÁV BANNEREK */
+    .side-banner{
+      position:fixed;top:50%;transform:translateY(-50%);
+      width:130px;text-align:center;color:#fff;padding:8px;border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.25);z-index:10;
+    }
+    .side-banner img{width:100%;border-radius:10px}
+    .side-left{left:10px}
+    .side-right{right:10px}
+    @media(max-width:900px){.side-banner{display:none}}
+
+    /* MAIN – „lebegő” szekciók */
+    main{max-width:1100px;margin:28px auto;padding:0 16px}
+    .section{
+      background:rgba(255,255,255,0.82);
+      border:1px solid rgba(255,255,255,.35);
+      border-radius:14px;margin-bottom:26px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.06);
+      backdrop-filter: blur(6px);
+      transition:.25s
+    }
+    .section:hover{box-shadow:0 10px 28px rgba(0,0,0,0.08)}
+    .section h2{
+      font-size:20px;padding:12px 16px;background:#e8edf4;border-radius:14px 14px 0 0;
+      display:flex;align-items:center;gap:10px
+    }
     .section.deals25 h2{background:linear-gradient(90deg,#ffe0b2,#ffcc80)}
     .section.deals50 h2{background:linear-gradient(90deg,#ffcdd2,#ef9a9a)}
+    .section.highlight h2{background:linear-gradient(90deg,#d1fae5,#a7f3d0)}
     .section img.logo{height:20px;width:auto}
-    .grid{display:grid;gap:18px;padding:16px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+    .grid{
+      display:grid;gap:16px;padding:14px;
+      grid-template-columns:repeat(auto-fill,minmax(230px,1fr))
+    }
 
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;height:360px;transition:transform .25s,box-shadow .25s}
-    .card:hover{transform:translateY(-5px);box-shadow:0 8px 18px rgba(0,0,0,.15)}
-    .thumb{height:180px;position:relative;background:#e8eef7;overflow:hidden}
+    /* KÁRTYÁK – kompakt (~20%-kal kisebb) + enyhe „floating” */
+    .card{
+      background:var(--card);border:1px solid var(--border);border-radius:14px;
+      overflow:hidden;display:flex;flex-direction:column;position:relative;height:300px;
+      transition:transform .25s, box-shadow .25s
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 12px 22px rgba(0,0,0,.12)}
+    .thumb{height:150px;position:relative;background:#e8eef7;overflow:hidden}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block}
     .badge{position:absolute;top:8px;left:8px;background:#ff4d4f;color:#fff;font-weight:700;padding:4px 8px;border-radius:6px;font-size:12px}
-    .body{padding:12px;flex-grow:1}
-    .title{font-weight:700;margin-bottom:4px}
+    .body{padding:10px;flex-grow:1}
+    .title{font-weight:700;margin-bottom:4px;font-size:14px;line-height:1.25}
     .muted{color:var(--muted);font-size:12px;display:flex;align-items:center;gap:6px}
     .muted img{width:16px;height:16px;object-fit:contain}
-    .price{font-weight:800;margin-top:8px}
-    .cta{margin-top:auto;padding:12px;text-align:center}
-    .cta a{display:inline-block;background:var(--gold);padding:8px 12px;border-radius:8px;color:#111;font-weight:600}
+    .price{font-weight:800;margin-top:6px;font-size:14px}
+    .cta{margin-top:auto;padding:10px;text-align:center}
+    .cta a{
+      display:inline-block;
+      background:linear-gradient(90deg,var(--cta1),var(--cta2));
+      padding:8px 12px;border-radius:8px;color:#111;font-weight:700;
+      box-shadow:0 2px 6px rgba(0,0,0,.15)
+    }
 
-    .toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px;background:#eef2f7;border-bottom:1px solid #e5e7eb;border-radius:12px 12px 0 0}
+    /* TOOLBAR (keresésnél) */
+    .toolbar{
+      display:flex;gap:10px;align-items:center;justify-content:space-between;
+      padding:10px 16px;background:#eef2f7;border-bottom:1px solid #e5e7eb;border-radius:12px 12px 0 0
+    }
     .toolbtn{background:#fff;border:1px solid #d1d5db;border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:600}
     .toolbtn:hover{background:#f5f6f8}
 
-    .side-banner{position:fixed;top:50%;transform:translateY(-50%);width:130px;text-align:center;color:#fff;padding:8px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.25);z-index:10}
-    .side-banner img{width:100%;border-radius:10px}
-    .side-left{left:10px} .side-right{right:10px}
-    @media(max-width:900px){.side-banner{display:none}}
-
     footer{text-align:center;padding:22px;background:var(--primary);color:#fff;margin-top:34px;font-size:14px}
+
+    /* Finom hóesés (ünnepi hangulat) */
+    .snow{pointer-events:none;position:fixed;inset:0;overflow:hidden;z-index:5}
+    .flake{
+      position:absolute;top:-10px;width:6px;height:6px;border-radius:50%;
+      background:rgba(255,255,255,0.85);filter:blur(0.4px);animation:fall linear infinite;opacity:.85
+    }
+    @keyframes fall{0%{transform:translateY(-10px)}100%{transform:translateY(110vh)}}
   </style>
 </head>
 <body>
+
+  <!-- Ünnepi, finom hóesés -->
+  <div class="snow" aria-hidden="true"></div>
 
   <!-- SIDE BANNERS -->
   <div class="side-banner side-left" aria-hidden="true">
@@ -137,7 +231,20 @@
           <p>Irányt mutat a legjobb ajánlatokhoz</p>
         </div>
       </div>
-      <div class="promo" role="note">🎁 Készülj az ünnepekre! – 🛍️ Black Friday akciók is elérhetők!</div>
+
+      <div class="promo" role="note">🎁 Készülj az ünnepekre – Black Friday és karácsonyi kedvezmények minden kategóriában!</div>
+
+      <!-- Kategória sáv -->
+      <nav class="categories" aria-label="Kategóriák">
+        <button class="catbtn active" data-cat="all">Összes</button>
+        <button class="catbtn" data-cat="tech">💻 Tech</button>
+        <button class="catbtn" data-cat="fashion">👗 Divat</button>
+        <button class="catbtn" data-cat="travel">✈️ Utazás</button>
+        <button class="catbtn" data-cat="home">🏠 Otthon</button>
+        <button class="catbtn" data-cat="beauty">💄 Szépség</button>
+      </nav>
+
+      <!-- Kereső -->
       <form id="searchForm" class="searchbar" role="search" action="">
         <input id="q" name="q" type="search" placeholder="Keresés: pl. laptop, cipő, ruha, wellness…" aria-label="Keresés" />
         <button type="submit" aria-label="Keresés indítása">Keresés</button>
@@ -146,9 +253,11 @@
   </header>
 
   <main id="content"></main>
-  <footer>© 2025 Findora • Az oldalon affiliate linkek lehetnek.</footer>
+
+  <footer>© 2025 Findora • Az oldalon affiliate linkek lehetnek. Biztonságos partneroldalak: Amazon, About You, Alza, Booking.</footer>
 
   <script>
+  /* ====== Beállítások ====== */
   const AMAZON_TAG="findora30-20";
   const amazon=q=>`https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=${AMAZON_TAG}`;
   const alza=q=>`https://www.alza.hu/search.htm?exps=${encodeURIComponent(q)}`;
@@ -162,14 +271,14 @@
     AboutYou:"https://upload.wikimedia.org/wikipedia/commons/7/79/About_You_logo.svg"
   };
 
-  // Logó fallback
+  // Brand logó fallback
   (function(){
     const img=document.getElementById('brandLogo');
     let step=0;
-    img.onerror=()=>{ step++; if(step===1)img.src=img.dataset.fallback1; else if(step===2)img.src=img.dataset.fallback2; };
+    img.onerror=()=>{ step++; if(step===1) img.src=img.dataset.fallback1; else if(step===2) img.src=img.dataset.fallback2; };
   })();
 
-  // Kulcsszó → illusztráció
+  /* ===== Tematikus képek kulcsszavakhoz ===== */
   const IMG_MAP={
     "laptop":"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200",
     "cipő":"https://images.unsplash.com/photo-1596464716121-5d0ae0e87dfd?q=80&w=1200",
@@ -181,25 +290,25 @@
     "hotel":"https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200",
     "fülhallgató":"https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1200"
   };
-
-  const ITEMS=[
-    {title:"Olcsó laptop", partner:"Amazon", price:"129 990 Ft", discount:25, url:amazon("laptop")},
-    {title:"Gaming laptop", partner:"Amazon", price:"299 990 Ft", discount:35, url:amazon("gaming laptop")},
-    {title:"Okosóra akció", partner:"Alza", price:"39 990 Ft", discount:40, url:alza("okosóra")},
-    {title:"Vezeték nélküli fülhallgató", partner:"Amazon", price:"17 990 Ft", discount:28, url:amazon("wireless earbuds")},
-    {title:"Budapest wellness hétvége", partner:"Booking", price:"Változó", discount:30, url:booking("Budapest wellness")},
-    {title:"Női cipők -40%", partner:"AboutYou", price:"Változó", discount:40, url:aboutyou("női cipő")},
-    {title:"Férfi kabát -35%", partner:"AboutYou", price:"Változó", discount:35, url:aboutyou("férfi kabát")},
-    {title:"Smart TV -55%", partner:"Amazon", price:"119 990 Ft", discount:55, url:amazon("smart tv")}
-  ];
-
   function getImageFor(title){
-    for(const k of Object.keys(IMG_MAP)){
-      if(title.toLowerCase().includes(k)) return IMG_MAP[k];
-    }
+    const keys=Object.keys(IMG_MAP);
+    for(const k of keys){ if(title.toLowerCase().includes(k)) return IMG_MAP[k]; }
     return `https://source.unsplash.com/800x600/?${encodeURIComponent(title)}`;
   }
 
+  /* ===== Adatok (kategóriákkal) ===== */
+  const ITEMS=[
+    {title:"Olcsó laptop", partner:"Amazon", price:"129 990 Ft", discount:25, url:amazon("laptop"), category:"tech"},
+    {title:"Gaming laptop", partner:"Amazon", price:"299 990 Ft", discount:35, url:amazon("gaming laptop"), category:"tech"},
+    {title:"Okosóra akció", partner:"Alza", price:"39 990 Ft", discount:40, url:alza("okosóra"), category:"tech"},
+    {title:"Vezeték nélküli fülhallgató", partner:"Amazon", price:"17 990 Ft", discount:28, url:amazon("wireless earbuds"), category:"tech"},
+    {title:"Budapest wellness hétvége", partner:"Booking", price:"Változó", discount:30, url:booking("Budapest wellness"), category:"travel"},
+    {title:"Női cipők -40%", partner:"AboutYou", price:"Változó", discount:40, url:aboutyou("női cipő"), category:"fashion"},
+    {title:"Férfi kabát -35%", partner:"AboutYou", price:"Változó", discount:35, url:aboutyou("férfi kabát"), category:"fashion"},
+    {title:"Smart TV -55%", partner:"Amazon", price:"119 990 Ft", discount:55, url:amazon("smart tv"), category:"tech"}
+  ];
+
+  /* ===== Kártya HTML ===== */
   function cardHTML(it){
     const img=getImageFor(it.title);
     const badge=it.discount>=25?`<span class="badge">-${it.discount}%</span>`:"";
@@ -211,36 +320,70 @@
         <div class="muted">${logo} ${it.partner}</div>
         <div class="price">${it.price}</div>
       </div>
-      <div class="cta"><a href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Megnyitás</a></div>
+      <div class="cta"><a href="${it.url}" target="_blank" rel="nofollow sponsored noopener">⚡ Részletek megtekintése</a></div>
     </div>`;
   }
 
+  /* ===== Render ===== */
   const content=document.getElementById('content');
 
   function renderSection(title, items, extraClass="", id=""){
-    if(!items.length) return;
+    if(!items.length)return;
     const s=document.createElement('section');
     s.className=`section ${extraClass}`.trim();
-    if(id) s.id=id;
+    if(id)s.id=id;
     s.innerHTML=`<h2>${title}</h2><div class="grid"></div>`;
     const g=s.querySelector('.grid');
-    for(const it of items) g.innerHTML+=cardHTML(it);
+    for(const it of items){ g.innerHTML+=cardHTML(it); }
     content.appendChild(s);
   }
 
-  function showHome(){
-    content.innerHTML="";
+  function renderTopDeals(){
+    // automatikusan a legnagyobb kedvezmények közül választ (TOP 3)
+    const top=[...ITEMS].sort((a,b)=>b.discount-a.discount).slice(0,3);
+    renderSection("🏆 A hét legjobb ajánlatai", top, "highlight", "topdeals");
+  }
+
+  function renderDeals(){
     const deals25=ITEMS.filter(i=>i.discount>=25 && i.discount<50);
     const deals50=ITEMS.filter(i=>i.discount>=50);
-    renderSection("🎁 Akciós ajánlatok (25–49%)",deals25,"deals25","deals25");
-    renderSection("🔥 Nagy kedvezmények (50%+)",deals50,"deals50","deals50");
-    for(const p of ["Amazon","AboutYou","Alza","Booking"]){
+    renderSection("🎁 Akciók 25–49%", deals25, "deals25", "deals25");
+    renderSection("🔥 Legnagyobb kedvezmények (50%+)", deals50, "deals50", "deals50");
+  }
+
+  function renderPartners(){
+    const partners=["Amazon","AboutYou","Alza","Booking"];
+    for(const p of partners){
       const list=ITEMS.filter(i=>i.partner===p);
       const logo=LOGO_URLS[p]?`<img src="${LOGO_URLS[p]}" class="logo" alt="${p} logó"> `:"";
-      renderSection(`${logo}${p} ajánlatok`,list);
+      renderSection(`${logo}${p} ajánlatok`, list, "", "partners");
     }
   }
 
+  /* ===== Kategória szűrés ===== */
+  function showCategory(cat){
+    content.innerHTML="";
+    renderTopDeals();
+    const list = cat==="all" ? ITEMS : ITEMS.filter(i=>i.category===cat);
+    if(cat!=="all"){
+      renderSection(`🔎 Kategória: ${catLabel(cat)}`, list);
+    } else {
+      renderDeals();
+      renderPartners();
+    }
+    setActiveCat(cat);
+  }
+  function catLabel(c){
+    return {tech:"Tech",fashion:"Divat",travel:"Utazás",home:"Otthon",beauty:"Szépség"}[c]||"Összes";
+  }
+  function setActiveCat(cat){
+    document.querySelectorAll(".catbtn").forEach(b=>{
+      b.classList.toggle("active", b.dataset.cat===cat);
+      if(cat==="all" && b.dataset.cat==="all") b.classList.add("active");
+    });
+  }
+
+  /* ===== Kereső ===== */
   function showSearch(val){
     const v=val.toLowerCase();
     const res=ITEMS.filter(i=>i.title.toLowerCase().includes(v));
@@ -253,34 +396,58 @@
         </div>
         <div class="grid"></div>
       </section>`;
-    document.getElementById('btnBack').onclick=showHome;
-    document.getElementById('btnHome').onclick=showHome;
+    document.getElementById('btnBack').onclick=()=>showCategory("all");
+    document.getElementById('btnHome').onclick=()=>showCategory("all");
     const g=content.querySelector('.grid');
 
-    if(res.length){ for(const it of res) g.innerHTML+=cardHTML(it); return; }
-
+    if(res.length){
+      for(const it of res) g.innerHTML+=cardHTML(it);
+      return;
+    }
+    // Javaslatok, ha nincs saját kártya-találat
     const sugg=[];
     if(v.match(/cipő|ruha|kabát|dzseki|póló|pulóver/))
-      sugg.push({title:`Keresés az AboutYou-n: ${val}`,partner:"AboutYou",url:aboutyou(val),price:""});
+      sugg.push({title:`Keresés az AboutYou-n: ${val}`,partner:"AboutYou",url:aboutyou(val),price:"",discount:0});
     if(v.match(/hotel|wellness|utazás|szállás/))
-      sugg.push({title:`Keresés a Bookingon: ${val}`,partner:"Booking",url:booking(val),price:""});
-    sugg.push({title:`Keresés az Amazonon: ${val}`,partner:"Amazon",url:amazon(val),price:""});
-    sugg.push({title:`Keresés az Alzán: ${val}`,partner:"Alza",url:alza(val),price:""});
+      sugg.push({title:`Keresés a Bookingon: ${val}`,partner:"Booking",url:booking(val),price:"",discount:0});
+    sugg.push({title:`Keresés az Amazonon: ${val}`,partner:"Amazon",url:amazon(val),price:"",discount:0});
+    sugg.push({title:`Keresés az Alzán: ${val}`,partner:"Alza",url:alza(val),price:"",discount:0});
     for(const it of sugg) g.innerHTML+=cardHTML(it);
   }
 
+  // Kategória gombok
+  document.querySelectorAll(".catbtn").forEach(btn=>{
+    btn.addEventListener("click",()=>showCategory(btn.dataset.cat));
+  });
+
+  // Kereső űrlap
   const form=document.getElementById('searchForm');
   form.addEventListener('submit',e=>{
     e.preventDefault();
     const val=document.getElementById('q').value.trim();
-    if(val) showSearch(val); else showHome();
+    if(val) showSearch(val); else showCategory("all");
   });
 
-  // (?q=) támogatás a strukturált adathoz
+  // Query param eset (SearchAction)
   const urlQ=new URLSearchParams(window.location.search).get('q');
-  if(urlQ){ document.getElementById('q').value=urlQ; showSearch(urlQ); } else { showHome(); }
-  </script>
+  if(urlQ){ document.getElementById('q').value=urlQ; showSearch(urlQ); } else { showCategory("all"); }
 
-  <noscript>A Findora teljes funkcionalitásához szükség van JavaScriptre.</noscript>
+  /* ===== Finom hóesés létrehozása ===== */
+  (function snow(){
+    const wrap=document.querySelector('.snow');
+    const COUNT=26; // kevés pehely, ne zavarjon
+    for(let i=0;i<COUNT;i++){
+      const f=document.createElement('div');
+      f.className='flake';
+      f.style.left = Math.random()*100 + 'vw';
+      const dur = 8 + Math.random()*8;
+      f.style.animationDuration = dur + 's';
+      f.style.animationDelay = (Math.random()*-dur) + 's';
+      f.style.opacity = (0.5 + Math.random()*0.5).toFixed(2);
+      f.style.width = f.style.height = (3 + Math.random()*4) + 'px';
+      wrap.appendChild(f);
+    }
+  })();
+  </script>
 </body>
 </html>
