@@ -74,23 +74,22 @@
     a{color:#0a66c2;text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* === Ünnepi, nem-fehér háttér === */
+    /* === Ünnepi, karácsonyos háttér (gömbök + fenyő), pirosas-zöldes overlay === */
     body{
       font-family:system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1000px 500px at -10% -10%, #ffe8b5 0%, transparent 55%),
-        radial-gradient(900px 480px at 110% -5%, #cfe2ff 0%, transparent 60%),
-        linear-gradient(180deg, #edf2f7 0%, #eef2fb 40%, #ffffff 100%);
-      background-attachment: fixed;
+        linear-gradient(rgba(150,0,0,.25), rgba(0,70,30,.28)), /* ünnepi árnyalat */
+        url("https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=1600&auto=format&fit=crop") center / cover no-repeat fixed;
+      /* tartalék színátmenet, ha a fotó nem tölt be */
+      background-color:#f4f7fb;
       overflow-x:hidden;
     }
-
-    /* finom „konfetti” textúra */
+    /* enyhe, szemcsés textúra az egészre */
     body:before{
       content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
-      background-image:url("https://www.transparenttextures.com/patterns/cubes.png");
-      opacity:.25;
+      background-image:url("https://www.transparenttextures.com/patterns/white-paper.png");
+      opacity:.18;
     }
 
     /* HERO */
@@ -99,7 +98,7 @@
       width:100%;
       color:#fff;
       display:flex;align-items:center;justify-content:center;text-align:center;
-      padding:14px 10px;
+      padding:16px 10px;
       background:linear-gradient(90deg,var(--primary-2),var(--primary));
       box-shadow: inset 0 -6px 30px rgba(255, 209, 102, .25);
     }
@@ -144,7 +143,7 @@
     .section.highlight h2{background:linear-gradient(90deg,#d1fae5,#a7f3d0)}
     .section img.logo{height:18px;width:auto}
 
-    /* vízszintes, húzható sorok minden szekcióban */
+    /* vízszintes, húzható sor minden szekcióban */
     .grid{display:flex; gap:14px; padding:12px; overflow-x:auto; scroll-snap-type:x proximity}
     .card{min-width:240px; scroll-snap-align:start; background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;height:300px;transition:transform .25s, box-shadow .25s}
     .card:hover{transform:translateY(-4px);box-shadow:0 12px 22px rgba(0,0,0,.12)}
@@ -167,7 +166,7 @@
 
     /* Hóesés – sűrűbb */
     .snow{pointer-events:none;position:fixed;inset:0;overflow:hidden;z-index:0}
-    .flake{position:absolute;top:-10px;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.9);filter:blur(.4px);animation:fall linear infinite}
+    .flake{position:absolute;top:-10px;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.95);filter:blur(.4px);animation:fall linear infinite}
     @keyframes fall{0%{transform:translateY(-10px)}100%{transform:translateY(110vh)}}
   </style>
 </head>
@@ -370,7 +369,7 @@
   /* hópelyhek – sűrűbb */
   (function snow(){
     const wrap=document.querySelector('.snow');
-    const COUNT=60; // volt 26
+    const COUNT=80; // sűrűbb
     for(let i=0;i<COUNT;i++){
       const f=document.createElement('div');
       f.className='flake';
