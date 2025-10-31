@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arvamiklos21.github.io/Findora/sitemap.xml
