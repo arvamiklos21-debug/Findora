@@ -8,19 +8,13 @@
   <meta name="description" content="A Findora segít megtalálni a legjobb akciókat és ajánlatokat: Amazon, Alza, About You, Booking és más partnerek kedvezményei egy helyen." />
   <meta name="keywords" content="Findora, akció, kupon, kedvezmény, Amazon, Alza, About You, Booking, olcsó laptop, cipő, ruha, wellness" />
 
-  <!-- Indexelés -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <!-- Amíg a findora.hu nem él, maradjon a GitHub-os canonical -->
   <link rel="canonical" href="https://arvamiklos21.github.io/Findora/" />
   <link rel="alternate" href="https://arvamiklos21.github.io/Findora/" hreflang="hu" />
-
-  <!-- GSC (hagyd meg a saját kódodat) -->
   <meta name="google-site-verification" content="vDPKx3UXBaAFpEBO4fQXqrX8bXr6mjlogt8qUr" />
 
-  <!-- Favikon -->
   <link rel="icon" href="assets/img/findora_mark.png" />
 
-  <!-- OG / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Findora" />
   <meta property="og:title" content="Findora – Irányt mutat a legjobb ajánlatokhoz" />
@@ -32,7 +26,6 @@
   <meta name="twitter:description" content="A legjobb akciók és kuponok egy helyen. Nézd meg a Findora válogatásait!" />
   <meta name="twitter:image" content="https://arvamiklos21.github.io/Findora/assets/img/findora-header.png" />
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -56,14 +49,13 @@
   }
   </script>
 
-  <!-- Webfont (Inter) a tipó egységesítéséhez -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --primary:#0e3a2a;        /* fenyő-zöld */
-      --primary-2:#14523b;
+      --primary:#0b3a6a;        /* kék téli */
+      --primary-2:#0e4c8e;
       --gold:#ffd166;
       --text:#111;
       --muted:#6b7280;
@@ -75,12 +67,6 @@
       --cta1:#ff7b7b; /* piros */
       --cta2:#ffd166; /* arany */
       --cta3:#2da44e; /* zöld  */
-
-      /* fényfüzér színek */
-      --light1:#ff7676;
-      --light2:#ffe066;
-      --light3:#6ee7b7;
-      --light4:#93c5fd;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
@@ -88,13 +74,12 @@
       font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
 
-      /* Ünnepi – fenyőfa fotó + zöldes átmenet + halvány fényglow */
+      /* Téli kék háttér + halvány glow + csillanások */
       background:
-        radial-gradient(1200px 500px at 80% -10%, rgba(255,215,170,.18) 0%, transparent 60%),
-        radial-gradient(900px 450px at -10% 0%, rgba(110,231,183,.18) 0%, transparent 55%),
-        url("https://images.unsplash.com/photo-1512386233331-3247f0b1cb1c?q=80&w=1600&auto=format&fit=crop") center / cover fixed no-repeat,
-        linear-gradient(180deg, #0a2b20 0%, #0f3d2e 35%, #14523b 60%, #0e3a2a 100%);
-      background-attachment: fixed, fixed, fixed, fixed;
+        radial-gradient(1200px 500px at 80% -10%, rgba(173,216,230,.25) 0%, transparent 60%),
+        radial-gradient(900px 450px at -10% 0%, rgba(135,206,250,.22) 0%, transparent 55%),
+        linear-gradient(180deg, #0e4c8e 0%, #0b3a6a 45%, #0a315a 100%);
+      background-attachment: fixed;
       overflow-x:hidden;
     }
     /* finom hópehely textúra a háttérben */
@@ -104,53 +89,54 @@
       opacity:.18;
     }
 
-    /* HERO */
+    /* Oldalsó dekor – fa, ajándék, sapka (SVG ismétlődő minta) */
+    .side-decor{
+      position:fixed; top:0; bottom:0; width:120px; z-index:1; pointer-events:none; opacity:.25;
+      background-repeat: repeat-y; background-size: 120px 300px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.2));
+    }
+    .side-left{ left:0;
+      background-image:url("data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='120' height='300' viewBox='0 0 120 300'><rect width='120' height='300' fill='none'/><g transform='translate(10,10)'><path d='M30 110 l30-50 l30 50 h-20 l20 30 h-20 l15 25 h-70 l15-25 h-20 l20-30 h-20z' fill='%232da44e' stroke='%230a3a2b' stroke-width='2'/><rect x='48' y='165' width='24' height='20' fill='%238b5a2b'/></g><g transform='translate(8,205)'><rect x='0' y='25' rx='6' ry='6' width='60' height='40' fill='%23ff4d4f'/><rect x='28' y='0' width='6' height='90' fill='%23ffd166'/><rect x='0' y='42' width='60' height='6' fill='%23ffd166'/></g><g transform='translate(70,10)'><path d='M15 40 q25 -30 50 0 q-10 5 -25 5 q-15 0 -25 -5 z' fill='%23ff7b7b' stroke='%23c62828' stroke-width='2'/><circle cx='40' cy='40' r='4' fill='white'/><rect x='34' y='40' width='12' height='35' rx='6' fill='white'/></g></svg>");
+    }
+    .side-right{ right:0;
+      background-image:url("data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='120' height='300' viewBox='0 0 120 300'><rect width='120' height='300' fill='none'/><g transform='translate(15,20)'><rect x='0' y='25' rx='6' ry='6' width='60' height='40' fill='%232da44e'/><rect x='28' y='0' width='6' height='90' fill='%23ffd166'/><rect x='0' y='42' width='60' height='6' fill='%23ffd166'/></g><g transform='translate(65,95)'><path d='M30 110 l30-50 l30 50 h-20 l20 30 h-20 l15 25 h-70 l15-25 h-20 l20-30 h-20z' fill='%232da44e' stroke='%230a3a2b' stroke-width='2'/><rect x='48' y='165' width='24' height='20' fill='%238b5a2b'/></g><g transform='translate(10,200)'><path d='M15 40 q25 -30 50 0 q-10 5 -25 5 q-15 0 -25 -5 z' fill='%23ff7b7b' stroke='%23c62828' stroke-width='2'/><circle cx='40' cy='40' r='4' fill='white'/><rect x='34' y='40' width='12' height='35' rx='6' fill='white'/></g></svg>");
+    }
+    @media (max-width:1024px){ .side-decor{display:none} }
+
+    /* HERO – kék fejléc, díszgömbök + mézeskalács formák (nincs animáció) */
     .hero{
-      position:relative; z-index:1; width:100%; color:#fff;
+      position:relative; z-index:2; width:100%; color:#fff;
       display:flex;align-items:center;justify-content:center;text-align:center;
       padding:64px 10px 24px;
       background:
-        radial-gradient(700px 160px at 10% 0, rgba(110,231,183,.18), transparent 70%),
-        radial-gradient(700px 160px at 90% 0, rgba(255,209,102,.18), transparent 70%),
+        radial-gradient(700px 160px at 10% 0, rgba(255,255,255,.12), transparent 70%),
+        radial-gradient(700px 160px at 90% 0, rgba(255,255,255,.12), transparent 70%),
         linear-gradient(90deg,var(--primary-2),var(--primary));
-      box-shadow: inset 0 -6px 30px rgba(255, 209, 102, .25);
+      box-shadow: inset 0 -6px 30px rgba(255, 255, 255, .18);
       overflow:hidden;
     }
-
-    /* Füzér + gömbök a fejlécben */
-    .garland{
-      position:absolute; inset:0 0 auto 0; height:90px; z-index:2; pointer-events:none;
-      /* fenti íves „kábel” */
+    /* díszgömbök + mézeskalács a fejléc tetején */
+    .header-ornaments{
+      position:absolute; inset:0 0 auto 0; height:110px; z-index:2; pointer-events:none;
       background:
-        radial-gradient(8px 8px at 5% 56%, var(--light1) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
-        radial-gradient(8px 8px at 20% 46%, var(--light2) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
-        radial-gradient(8px 8px at 35% 60%, var(--light3) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
-        radial-gradient(8px 8px at 50% 44%, var(--light4) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
-        radial-gradient(8px 8px at 65% 58%, var(--light2) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
-        radial-gradient(8px 8px at 80% 45%, var(--light1) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
-        radial-gradient(6px 6px at 10% 87%, #ffd166 47%, transparent 49%) 0 0 / 100px 90px repeat-x,
-        radial-gradient(22px 22px at 15% 96%, #d7263d 45%, transparent 47%) 0 0 / 200px 90px repeat-x,
-        radial-gradient(22px 22px at 55% 93%, #c59d0c 45%, transparent 47%) 0 0 / 260px 90px repeat-x,
-        linear-gradient( to bottom, transparent 0 55%, rgba(0,0,0,.2) 56% 57%, transparent 58% ) 0 0 / 100% 90px no-repeat;
-      animation: twinkle 2.4s infinite steps(2, jump-start);
+        /* gömbök */
+        radial-gradient(circle at 8% 60%, #ffd166 0 14px, transparent 15px),
+        radial-gradient(circle at 18% 50%, #ff7b7b 0 16px, transparent 17px),
+        radial-gradient(circle at 28% 58%, #6dd3a6 0 12px, transparent 13px),
+        radial-gradient(circle at 38% 48%, #93c5fd 0 15px, transparent 16px),
+        radial-gradient(circle at 48% 62%, #ffd166 0 13px, transparent 14px),
+        radial-gradient(circle at 58% 50%, #ff7b7b 0 16px, transparent 17px),
+        radial-gradient(circle at 68% 58%, #6dd3a6 0 12px, transparent 13px),
+        radial-gradient(circle at 78% 46%, #93c5fd 0 15px, transparent 16px),
+        /* mézeskalács formák (csillag + szív mintázat) */
+        radial-gradient(8px 8px at 12% 88%, #d97706 49%, transparent 51%),
+        radial-gradient(8px 8px at 22% 90%, #b45309 49%, transparent 51%),
+        radial-gradient(8px 8px at 42% 85%, #d97706 49%, transparent 51%),
+        radial-gradient(8px 8px at 62% 90%, #b45309 49%, transparent 51%),
+        radial-gradient(8px 8px at 82% 87%, #d97706 49%, transparent 51%),
+        linear-gradient(to bottom, transparent 0 55%, rgba(0,0,0,.15) 56% 57%, transparent 58%) 0 0 / 100% 110px no-repeat;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
-    }
-    @keyframes twinkle{
-      50%{
-        background-position:
-          10px 0, 0 0, 20px 0, 0 0, 10px 0, 0 0, 0 0, 0 0, 0 0, 0 0;
-      }
-    }
-
-    .hero:after{
-      /* extra díszgömb csoport jobbra fent */
-      content:""; position:absolute; right:-40px; top:-30px; width:220px; height:220px; z-index:1;
-      background-image:
-        radial-gradient(circle at 35% 35%, #ffd166 0 14px, transparent 15px),
-        radial-gradient(circle at 70% 60%, #ff7b7b 0 18px, transparent 19px),
-        radial-gradient(circle at 25% 75%, #2da44e 0 12px, transparent 13px);
-      filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));
-      opacity:.7;
+      opacity:.9;
     }
 
     .dev-badge{
@@ -160,7 +146,7 @@
     }
     .hero-inner{max-width:1100px;width:100%; position:relative; z-index:2}
     .brand{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:8px}
-    .brand img{height:46px;border-radius:10px;background:#123;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+    .brand img{height:46px;border-radius:10px;background:#0a2b4a;box-shadow:0 2px 6px rgba(0,0,0,.2)}
     .hero h1{font-size:clamp(20px,3.5vw,32px);color:var(--gold);font-weight:800}
     .hero p{font-size:clamp(13px,1.7vw,16px)}
     .promo{
@@ -215,13 +201,22 @@
     /* Szekciók */
     .section{
       background:var(--panel); border:1px solid rgba(255,255,255,.35); border-radius:14px;
-      margin-bottom:22px; box-shadow:0 8px 24px rgba(0,0,0,.06); backdrop-filter: blur(6px);
+      margin-bottom:32px; box-shadow:0 8px 24px rgba(0,0,0,.06); backdrop-filter: blur(6px);
+      position:relative;
     }
     .section h2{font-size:18px;padding:10px 12px;background:#e8edf4;border-radius:14px 14px 0 0;display:flex;align-items:center;gap:10px}
     .section.partner h2{background:linear-gradient(90deg,#e0f2fe,#fff)}
     .section.deals25 h2{background:linear-gradient(90deg,#ffe0b2,#ffcc80)}
     .section.deals50 h2{background:linear-gradient(90deg,#ffcdd2,#ef9a9a)}
     .section.highlight h2{background:linear-gradient(90deg,#d1fae5,#a7f3d0)}
+
+    /* Dekorcsík a táblázat (grid) ALATT – ikonok: fa, ajándék, sapka, mézeskalács */
+    .section::after{
+      content:""; display:block; height:56px; border-radius:0 0 14px 14px;
+      background:
+        url("data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='600' height='56' viewBox='0 0 600 56'><rect width='600' height='56' fill='white' fill-opacity='0'/><g opacity='.95'><g transform='translate(25,6)'><path d='M10 36 l15-26 l15 26 h-10 l10 12 h-10 l8 10 h-36 l8-10 h-10 l10-12 h-10z' fill='%232da44e' stroke='%230a3a2b' stroke-width='2'/></g><g transform='translate(110,6)'><rect x='0' y='18' rx='6' ry='6' width='44' height='26' fill='%23ff4d4f'/><rect x='20' y='0' width='4' height='56' fill='%23ffd166'/><rect x='0' y='28' width='44' height='4' fill='%23ffd166'/></g><g transform='translate(185,6)'><path d='M10 18 q18 -22 36 0 q-8 4 -18 4 q-10 0 -18 -4 z' fill='%23ff7b7b' stroke='%23c62828' stroke-width='2'/><circle cx='28' cy='18' r='3' fill='white'/><rect x='24' y='18' width='8' height='30' rx='5' fill='white'/></g><g transform='translate(255,6)'><circle cx='16' cy='22' r='12' fill='%23ffd166'/></g><g transform='translate(315,6)'><rect x='4' y='18' width='24' height='24' rx='4' fill='%23d97706'/></g><g transform='translate(375,6)'><circle cx='16' cy='22' r='12' fill='%2393c5fd'/></g><g transform='translate(435,6)'><rect x='0' y='18' rx='6' ry='6' width='44' height='26' fill='%232da44e'/><rect x='20' y='0' width='4' height='56' fill='%23ffd166'/><rect x='0' y='28' width='44' height='4' fill='%23ffd166'/></g><g transform='translate(510,6)'><path d='M10 36 l15-26 l15 26 h-10 l10 12 h-10 l8 10 h-36 l8-10 h-10 l10-12 h-10z' fill='%232da44e' stroke='%230a3a2b' stroke-width='2'/></g></g></svg>") center/auto 56px repeat-x;
+      border-top:1px solid var(--border);
+    }
 
     /* Vízszintes, húzható „táblázat” sor */
     .grid{display:flex; gap:14px; padding:12px; overflow-x:auto; scroll-snap-type:x proximity}
@@ -269,11 +264,15 @@
 </head>
 <body>
 
+  <!-- oldalsó díszek -->
+  <div class="side-decor side-left" aria-hidden="true"></div>
+  <div class="side-decor side-right" aria-hidden="true"></div>
+
   <!-- hó minden felett -->
   <div class="snow" aria-hidden="true"></div>
 
   <header class="hero">
-    <div class="garland" aria-hidden="true"></div>
+    <div class="header-ornaments" aria-hidden="true"></div>
     <span class="dev-badge">Folyamatos fejlesztés</span>
     <div class="hero-inner">
       <div class="brand">
@@ -287,7 +286,7 @@
         </div>
       </div>
 
-      <div class="promo" role="note">🎄 Ünnepi szezon – Black Friday és karácsonyi kedvezmények minden kategóriában!</div>
+      <div class="promo" role="note">🎄 Ünnepi szezon – karácsonyi kedvezmények minden kategóriában!</div>
 
       <nav class="categories" aria-label="Kategóriák">
         <button class="catbtn active" data-cat="all">Összes</button>
