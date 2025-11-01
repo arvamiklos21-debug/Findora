@@ -62,30 +62,39 @@
 
   <style>
     :root{
-      --primary:#003366;
-      --primary-2:#1a4b8c;
+      --primary:#0e3a2a;        /* fenyő-zöld */
+      --primary-2:#14523b;
       --gold:#ffd166;
       --text:#111;
       --muted:#6b7280;
       --card:rgba(255,255,255,0.95);
       --panel:#ffffffd0;
       --border:#e5e7eb;
-      /* ünnepi kiemelők */
+
+      /* ünnepi akcentek */
       --cta1:#ff7b7b; /* piros */
       --cta2:#ffd166; /* arany */
       --cta3:#2da44e; /* zöld  */
+
+      /* fényfüzér színek */
+      --light1:#ff7676;
+      --light2:#ffe066;
+      --light3:#6ee7b7;
+      --light4:#93c5fd;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
       font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
-      /* Ünnepi pirosas háttér + enyhe dísz */
+
+      /* Ünnepi – fenyőfa fotó + zöldes átmenet + halvány fényglow */
       background:
-        radial-gradient(1200px 500px at 80% -10%, rgba(255,215,170,.25) 0%, transparent 60%),
-        radial-gradient(900px 450px at -10% 0%, rgba(255,122,122,.28) 0%, transparent 55%),
-        linear-gradient(180deg, #7a0d17 0%, #9f1b24 35%, #b6272a 60%, #d8383b 100%);
-      background-attachment: fixed;
+        radial-gradient(1200px 500px at 80% -10%, rgba(255,215,170,.18) 0%, transparent 60%),
+        radial-gradient(900px 450px at -10% 0%, rgba(110,231,183,.18) 0%, transparent 55%),
+        url("https://images.unsplash.com/photo-1512386233331-3247f0b1cb1c?q=80&w=1600&auto=format&fit=crop") center / cover fixed no-repeat,
+        linear-gradient(180deg, #0a2b20 0%, #0f3d2e 35%, #14523b 60%, #0e3a2a 100%);
+      background-attachment: fixed, fixed, fixed, fixed;
       overflow-x:hidden;
     }
     /* finom hópehely textúra a háttérben */
@@ -95,33 +104,61 @@
       opacity:.18;
     }
 
-    /* HERO + diszkrét gömb dísz */
+    /* HERO */
     .hero{
       position:relative; z-index:1; width:100%; color:#fff;
       display:flex;align-items:center;justify-content:center;text-align:center;
-      padding:14px 10px;
+      padding:64px 10px 24px;
       background:
-        radial-gradient(700px 160px at 10% 0, rgba(255,123,123,.18), transparent 70%),
-        radial-gradient(700px 160px at 90% 0, rgba(45,164,78,.18), transparent 70%),
+        radial-gradient(700px 160px at 10% 0, rgba(110,231,183,.18), transparent 70%),
+        radial-gradient(700px 160px at 90% 0, rgba(255,209,102,.18), transparent 70%),
         linear-gradient(90deg,var(--primary-2),var(--primary));
       box-shadow: inset 0 -6px 30px rgba(255, 209, 102, .25);
       overflow:hidden;
     }
+
+    /* Füzér + gömbök a fejlécben */
+    .garland{
+      position:absolute; inset:0 0 auto 0; height:90px; z-index:2; pointer-events:none;
+      /* fenti íves „kábel” */
+      background:
+        radial-gradient(8px 8px at 5% 56%, var(--light1) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
+        radial-gradient(8px 8px at 20% 46%, var(--light2) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
+        radial-gradient(8px 8px at 35% 60%, var(--light3) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
+        radial-gradient(8px 8px at 50% 44%, var(--light4) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
+        radial-gradient(8px 8px at 65% 58%, var(--light2) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
+        radial-gradient(8px 8px at 80% 45%, var(--light1) 45%, transparent 47%) 0 0 / 120px 90px repeat-x,
+        radial-gradient(6px 6px at 10% 87%, #ffd166 47%, transparent 49%) 0 0 / 100px 90px repeat-x,
+        radial-gradient(22px 22px at 15% 96%, #d7263d 45%, transparent 47%) 0 0 / 200px 90px repeat-x,
+        radial-gradient(22px 22px at 55% 93%, #c59d0c 45%, transparent 47%) 0 0 / 260px 90px repeat-x,
+        linear-gradient( to bottom, transparent 0 55%, rgba(0,0,0,.2) 56% 57%, transparent 58% ) 0 0 / 100% 90px no-repeat;
+      animation: twinkle 2.4s infinite steps(2, jump-start);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+    }
+    @keyframes twinkle{
+      50%{
+        background-position:
+          10px 0, 0 0, 20px 0, 0 0, 10px 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+      }
+    }
+
     .hero:after{
-      content:""; position:absolute; right:-40px; top:-30px; width:220px; height:220px; z-index:0;
+      /* extra díszgömb csoport jobbra fent */
+      content:""; position:absolute; right:-40px; top:-30px; width:220px; height:220px; z-index:1;
       background-image:
         radial-gradient(circle at 35% 35%, #ffd166 0 14px, transparent 15px),
         radial-gradient(circle at 70% 60%, #ff7b7b 0 18px, transparent 19px),
         radial-gradient(circle at 25% 75%, #2da44e 0 12px, transparent 13px);
       filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));
-      opacity:.6;
+      opacity:.7;
     }
+
     .dev-badge{
-      position:absolute; left:12px; top:12px; z-index:2;
+      position:absolute; left:12px; top:12px; z-index:3;
       background:var(--cta3); color:#fff; padding:6px 10px; border-radius:10px;
       font-weight:700; font-size:13px; box-shadow:0 2px 6px rgba(0,0,0,.2);
     }
-    .hero-inner{max-width:1100px;width:100%; position:relative; z-index:1}
+    .hero-inner{max-width:1100px;width:100%; position:relative; z-index:2}
     .brand{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:8px}
     .brand img{height:46px;border-radius:10px;background:#123;box-shadow:0 2px 6px rgba(0,0,0,.2)}
     .hero h1{font-size:clamp(20px,3.5vw,32px);color:var(--gold);font-weight:800}
@@ -236,6 +273,7 @@
   <div class="snow" aria-hidden="true"></div>
 
   <header class="hero">
+    <div class="garland" aria-hidden="true"></div>
     <span class="dev-badge">Folyamatos fejlesztés</span>
     <div class="hero-inner">
       <div class="brand">
@@ -249,7 +287,7 @@
         </div>
       </div>
 
-      <div class="promo" role="note">🎁 Ünnepi szezon – Black Friday és karácsonyi kedvezmények minden kategóriában!</div>
+      <div class="promo" role="note">🎄 Ünnepi szezon – Black Friday és karácsonyi kedvezmények minden kategóriában!</div>
 
       <nav class="categories" aria-label="Kategóriák">
         <button class="catbtn active" data-cat="all">Összes</button>
